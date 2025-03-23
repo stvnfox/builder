@@ -11,7 +11,8 @@ import { ConvexQueryClient } from "@convex-dev/react-query";
 import { ConvexProviderWithClerk } from "convex/react-clerk";
 import { ConvexReactClient } from "convex/react";
 
-// Extract environment variable to avoid hydration issues
+import '../main.css'
+
 const CLERK_PUBLISHABLE_KEY = (import.meta as any).env.VITE_CLERK_PUBLISHABLE_KEY;
 
 const fetchClerkAuth = createServerFn({ method: "GET" }).handler(async () => {

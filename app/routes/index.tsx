@@ -14,8 +14,8 @@ export const Route = createFileRoute("/")({
 
 function Home() {
   return (
-    <div>
-      <h1>builder</h1>
+    <div className="container mx-auto">
+      <h1 className="text-2xl font-bold">builder</h1>
       <SignedIn>
         <UserButton />
         <SignOutButton />
