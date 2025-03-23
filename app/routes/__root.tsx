@@ -1,23 +1,31 @@
 import type { ReactNode } from "react";
+import type { QueryClient } from "@tanstack/react-query";
+import type { ConvexQueryClient } from "@convex-dev/react-query";
+import type { ConvexReactClient } from "convex/react";
 
-import { QueryClient } from "@tanstack/react-query";
-import { createRootRouteWithContext, useRouteContext } from "@tanstack/react-router";
+import {
+  createRootRouteWithContext,
+  useRouteContext,
+} from "@tanstack/react-router";
 import { Outlet, HeadContent, Scripts } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 import { ClerkProvider, useAuth } from "@clerk/tanstack-start";
 import { getAuth } from "@clerk/tanstack-start/server";
 import { getWebRequest } from "@tanstack/react-start/server";
-import { ConvexQueryClient } from "@convex-dev/react-query";
 import { ConvexProviderWithClerk } from "convex/react-clerk";
-import { ConvexReactClient } from "convex/react";
 
-import '../main.css'
+import "../main.css";
 
-const CLERK_PUBLISHABLE_KEY = (import.meta as any).env.VITE_CLERK_PUBLISHABLE_KEY;
+const CLERK_PUBLISHABLE_KEY = (import.meta.env as Record<string, string>)
+  .VITE_CLERK_PUBLISHABLE_KEY;
 
 const fetchClerkAuth = createServerFn({ method: "GET" }).handler(async () => {
   try {
-    const auth = await getAuth(getWebRequest()!);
+    const request = getWebRequest();
+    if (!request) {
+      throw new Error("No web request found");
+    }
+    const auth = await getAuth(request);
     const token = await auth.getToken({ template: "convex" });
 
     return {
@@ -56,19 +64,19 @@ export const Route = createRootRouteWithContext<{
     try {
       const auth = await fetchClerkAuth();
       const { userId, token } = auth;
- 
-    // During SSR only (the only time serverHttpClient exists),
-    // set the Clerk auth token to make HTTP queries with.
-    if (token) {
-      ctx.context.convexQueryClient.serverHttpClient?.setAuth(token)
-    }
+
+      // During SSR only (the only time serverHttpClient exists),
+      // set the Clerk auth token to make HTTP queries with.
+      if (token) {
+        ctx.context.convexQueryClient.serverHttpClient?.setAuth(token);
+      }
 
       return {
         userId,
         token,
       };
     } catch (error) {
-      console.error('Auth error:', error);
+      console.error("Auth error:", error);
       return {
         userId: null,
         token: null,
@@ -76,7 +84,7 @@ export const Route = createRootRouteWithContext<{
     }
   },
   errorComponent: ({ error }) => {
-    return <div>Error: {error.message}</div>
+    return <div>Error: {error.message}</div>;
   },
   notFoundComponent: () => <div>Not found</div>,
   component: RootComponent,
@@ -84,7 +92,7 @@ export const Route = createRootRouteWithContext<{
 
 function RootComponent() {
   const context = useRouteContext({ from: Route.id });
-  
+
   return (
     <ClerkProvider publishableKey={CLERK_PUBLISHABLE_KEY}>
       <ConvexProviderWithClerk client={context.convexClient} useAuth={useAuth}>
@@ -98,7 +106,7 @@ function RootComponent() {
 
 function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html>
+    <html lang="en">
       <head>
         <HeadContent />
       </head>

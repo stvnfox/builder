@@ -12,7 +12,7 @@ export const Route = createFileRoute("/sign-in")({
 
 function RouteComponent() {
   return (
-    <div className="flex items-center justify-center min-h-screen min-w-screen">
+    <div className="flex min-h-screen min-w-screen items-center justify-center">
       <SignIn routing="hash" forceRedirectUrl={window.location.href} />
     </div>
   );

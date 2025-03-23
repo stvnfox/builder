@@ -6,14 +6,15 @@ import { ConvexProvider, ConvexReactClient } from "convex/react";
 import { routeTree } from "./routeTree.gen";
 
 export function createRouter() {
-  const CONVEX_URL = (import.meta as any).env.VITE_CONVEX_URL!;
+  const CONVEX_URL = (import.meta.env as Record<string, string>)
+    .VITE_CONVEX_URL;
   if (!CONVEX_URL) {
     console.error("missing envar CONVEX_URL");
   }
   const convex = new ConvexReactClient(CONVEX_URL, {
     unsavedChangesWarning: false,
-  })
-  const convexQueryClient = new ConvexQueryClient(convex)
+  });
+  const convexQueryClient = new ConvexQueryClient(convex);
 
   const queryClient: QueryClient = new QueryClient({
     defaultOptions: {
@@ -36,7 +37,7 @@ export function createRouter() {
         </ConvexProvider>
       ),
     }),
-    queryClient,
+    queryClient
   );
 
   return router;
