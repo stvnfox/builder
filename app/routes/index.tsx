@@ -1,20 +1,29 @@
-import { convexQuery } from "@convex-dev/react-query";
-import { useSuspenseQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
-import { api } from "../../convex/_generated/api";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  SignOutButton,
+  SignUpButton,
+  UserButton,
+} from "@clerk/tanstack-start";
 
 export const Route = createFileRoute("/")({
   component: Home,
 });
 
 function Home() {
-  const { data } = useSuspenseQuery(convexQuery(api.tasks.get, {}));
-
   return (
     <div>
-      {data.map(({ _id, text }) => (
-        <div key={_id}>{text}</div>
-      ))}
+      <h1>builder</h1>
+      <SignedIn>
+        <UserButton />
+        <SignOutButton />
+      </SignedIn>
+      <SignedOut>
+        <SignUpButton />
+        <SignInButton />
+      </SignedOut>
     </div>
   );
 }
