@@ -7,6 +7,7 @@ import {
   SignUpButton,
   UserButton,
 } from "@clerk/tanstack-start";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -18,11 +19,19 @@ function Home() {
       <h1 className="text-2xl font-bold">builder</h1>
       <SignedIn>
         <UserButton />
-        <SignOutButton />
+        <Button asChild>
+          <SignOutButton />
+        </Button>
       </SignedIn>
       <SignedOut>
-        <SignUpButton />
-        <SignInButton />
+        <div className="flex gap-2">
+          <Button asChild>
+            <SignUpButton />
+          </Button>
+          <Button asChild>
+            <SignInButton />
+          </Button>
+        </div>
       </SignedOut>
     </div>
   );
