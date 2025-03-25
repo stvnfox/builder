@@ -61,7 +61,7 @@ export const AppSidebar: FunctionComponent = () => {
   const pages = [
     {
       name: "Landing page",
-      logo: Home,   
+      logo: Home,
     },
     {
       name: "Landing page 2",

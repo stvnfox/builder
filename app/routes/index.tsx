@@ -1,4 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { dark } from "@clerk/themes";
+
+import { useTheme } from "@/hooks/use-theme";
+
 import {
   SignedIn,
   SignedOut,
@@ -14,12 +18,18 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
+  const { theme } = useTheme();
+
   return (
     <div className="container mx-auto">
       <h1 className="font-bold text-2xl">builder</h1>
       <SignedIn>
         <div className="flex gap-2">
-          <UserButton />
+          <UserButton
+            appearance={{
+              baseTheme: theme === "dark" ? dark : undefined,
+            }}
+          />
           <Button asChild>
             <SignOutButton />
           </Button>

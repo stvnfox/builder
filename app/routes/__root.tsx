@@ -14,6 +14,8 @@ import { getAuth } from "@clerk/tanstack-start/server";
 import { getWebRequest } from "@tanstack/react-start/server";
 import { ConvexProviderWithClerk } from "convex/react-clerk";
 
+import { useTheme } from "@/hooks/use-theme";
+
 import "../main.css";
 
 const CLERK_PUBLISHABLE_KEY = (import.meta.env as Record<string, string>)
@@ -105,8 +107,10 @@ function RootComponent() {
 }
 
 function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
+  const { theme } = useTheme();
+
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className={theme}>
       <head>
         <HeadContent />
       </head>
