@@ -1,5 +1,6 @@
 import type { FunctionComponent } from "react";
 import { Eye, Hammer } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 
 import type { View } from "@/types/views";
 
@@ -15,7 +16,7 @@ import {
 } from "@/components/ui/sidebar";
 
 export const PageNav: FunctionComponent = () => {
-	const { setView } = useViewContext();
+	const { setView, selectedPageId } = useViewContext();
 
 	const items = [
 		{
@@ -26,7 +27,7 @@ export const PageNav: FunctionComponent = () => {
 		{
 			title: "Preview",
 			icon: Eye,
-			setView: "preview",
+			url: `/preview/${selectedPageId}`,
 		},
 	];
 
@@ -37,10 +38,21 @@ export const PageNav: FunctionComponent = () => {
 				<SidebarMenu>
 					{items.map((item) => (
 						<SidebarMenuItem key={item.title}>
-							<SidebarMenuButton onClick={() => setView(item.setView as View)}>
-								<item.icon className="text-muted-foreground" />
-								<span>{item.title}</span>
-							</SidebarMenuButton>
+							{item.url ? (
+								<SidebarMenuItem>
+									<Link to={item.url}>
+										<item.icon className="text-muted-foreground" />
+										<span>{item.title}</span>
+									</Link>
+								</SidebarMenuItem>
+							) : (
+								<SidebarMenuButton
+									onClick={() => setView(item.setView as View)}
+								>
+									<item.icon className="text-muted-foreground" />
+									<span>{item.title}</span>
+								</SidebarMenuButton>
+							)}
 						</SidebarMenuItem>
 					))}
 				</SidebarMenu>

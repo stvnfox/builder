@@ -10,132 +10,157 @@
 
 // Import Routes
 
-import { Route as rootRoute } from "./routes/__root";
-import { Route as SignInImport } from "./routes/sign-in";
-import { Route as ProtectedImport } from "./routes/_protected";
-import { Route as IndexImport } from "./routes/index";
-import { Route as ProtectedDashboardImport } from "./routes/_protected/dashboard";
+import { Route as rootRoute } from './routes/__root'
+import { Route as SignInImport } from './routes/sign-in'
+import { Route as ProtectedImport } from './routes/_protected'
+import { Route as IndexImport } from './routes/index'
+import { Route as PreviewIdImport } from './routes/preview.$id'
+import { Route as ProtectedDashboardImport } from './routes/_protected/dashboard'
 
 // Create/Update Routes
 
 const SignInRoute = SignInImport.update({
-  id: "/sign-in",
-  path: "/sign-in",
+  id: '/sign-in',
+  path: '/sign-in',
   getParentRoute: () => rootRoute,
-} as any);
+} as any)
 
 const ProtectedRoute = ProtectedImport.update({
-  id: "/_protected",
+  id: '/_protected',
   getParentRoute: () => rootRoute,
-} as any);
+} as any)
 
 const IndexRoute = IndexImport.update({
-  id: "/",
-  path: "/",
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRoute,
-} as any);
+} as any)
+
+const PreviewIdRoute = PreviewIdImport.update({
+  id: '/preview/$id',
+  path: '/preview/$id',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const ProtectedDashboardRoute = ProtectedDashboardImport.update({
-  id: "/dashboard",
-  path: "/dashboard",
+  id: '/dashboard',
+  path: '/dashboard',
   getParentRoute: () => ProtectedRoute,
-} as any);
+} as any)
 
 // Populate the FileRoutesByPath interface
 
-declare module "@tanstack/react-router" {
+declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    "/": {
-      id: "/";
-      path: "/";
-      fullPath: "/";
-      preLoaderRoute: typeof IndexImport;
-      parentRoute: typeof rootRoute;
-    };
-    "/_protected": {
-      id: "/_protected";
-      path: "";
-      fullPath: "";
-      preLoaderRoute: typeof ProtectedImport;
-      parentRoute: typeof rootRoute;
-    };
-    "/sign-in": {
-      id: "/sign-in";
-      path: "/sign-in";
-      fullPath: "/sign-in";
-      preLoaderRoute: typeof SignInImport;
-      parentRoute: typeof rootRoute;
-    };
-    "/_protected/dashboard": {
-      id: "/_protected/dashboard";
-      path: "/dashboard";
-      fullPath: "/dashboard";
-      preLoaderRoute: typeof ProtectedDashboardImport;
-      parentRoute: typeof ProtectedImport;
-    };
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/_protected': {
+      id: '/_protected'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof ProtectedImport
+      parentRoute: typeof rootRoute
+    }
+    '/sign-in': {
+      id: '/sign-in'
+      path: '/sign-in'
+      fullPath: '/sign-in'
+      preLoaderRoute: typeof SignInImport
+      parentRoute: typeof rootRoute
+    }
+    '/_protected/dashboard': {
+      id: '/_protected/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof ProtectedDashboardImport
+      parentRoute: typeof ProtectedImport
+    }
+    '/preview/$id': {
+      id: '/preview/$id'
+      path: '/preview/$id'
+      fullPath: '/preview/$id'
+      preLoaderRoute: typeof PreviewIdImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
 // Create and export the route tree
 
 interface ProtectedRouteChildren {
-  ProtectedDashboardRoute: typeof ProtectedDashboardRoute;
+  ProtectedDashboardRoute: typeof ProtectedDashboardRoute
 }
 
 const ProtectedRouteChildren: ProtectedRouteChildren = {
   ProtectedDashboardRoute: ProtectedDashboardRoute,
-};
+}
 
 const ProtectedRouteWithChildren = ProtectedRoute._addFileChildren(
-  ProtectedRouteChildren
-);
+  ProtectedRouteChildren,
+)
 
 export interface FileRoutesByFullPath {
-  "/": typeof IndexRoute;
-  "": typeof ProtectedRouteWithChildren;
-  "/sign-in": typeof SignInRoute;
-  "/dashboard": typeof ProtectedDashboardRoute;
+  '/': typeof IndexRoute
+  '': typeof ProtectedRouteWithChildren
+  '/sign-in': typeof SignInRoute
+  '/dashboard': typeof ProtectedDashboardRoute
+  '/preview/$id': typeof PreviewIdRoute
 }
 
 export interface FileRoutesByTo {
-  "/": typeof IndexRoute;
-  "": typeof ProtectedRouteWithChildren;
-  "/sign-in": typeof SignInRoute;
-  "/dashboard": typeof ProtectedDashboardRoute;
+  '/': typeof IndexRoute
+  '': typeof ProtectedRouteWithChildren
+  '/sign-in': typeof SignInRoute
+  '/dashboard': typeof ProtectedDashboardRoute
+  '/preview/$id': typeof PreviewIdRoute
 }
 
 export interface FileRoutesById {
-  __root__: typeof rootRoute;
-  "/": typeof IndexRoute;
-  "/_protected": typeof ProtectedRouteWithChildren;
-  "/sign-in": typeof SignInRoute;
-  "/_protected/dashboard": typeof ProtectedDashboardRoute;
+  __root__: typeof rootRoute
+  '/': typeof IndexRoute
+  '/_protected': typeof ProtectedRouteWithChildren
+  '/sign-in': typeof SignInRoute
+  '/_protected/dashboard': typeof ProtectedDashboardRoute
+  '/preview/$id': typeof PreviewIdRoute
 }
 
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath;
-  fullPaths: "/" | "" | "/sign-in" | "/dashboard";
-  fileRoutesByTo: FileRoutesByTo;
-  to: "/" | "" | "/sign-in" | "/dashboard";
-  id: "__root__" | "/" | "/_protected" | "/sign-in" | "/_protected/dashboard";
-  fileRoutesById: FileRoutesById;
+  fileRoutesByFullPath: FileRoutesByFullPath
+  fullPaths: '/' | '' | '/sign-in' | '/dashboard' | '/preview/$id'
+  fileRoutesByTo: FileRoutesByTo
+  to: '/' | '' | '/sign-in' | '/dashboard' | '/preview/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/_protected'
+    | '/sign-in'
+    | '/_protected/dashboard'
+    | '/preview/$id'
+  fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute;
-  ProtectedRoute: typeof ProtectedRouteWithChildren;
-  SignInRoute: typeof SignInRoute;
+  IndexRoute: typeof IndexRoute
+  ProtectedRoute: typeof ProtectedRouteWithChildren
+  SignInRoute: typeof SignInRoute
+  PreviewIdRoute: typeof PreviewIdRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ProtectedRoute: ProtectedRouteWithChildren,
   SignInRoute: SignInRoute,
-};
+  PreviewIdRoute: PreviewIdRoute,
+}
 
 export const routeTree = rootRoute
   ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>();
+  ._addFileTypes<FileRouteTypes>()
 
 /* ROUTE_MANIFEST_START
 {
@@ -145,7 +170,8 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/_protected",
-        "/sign-in"
+        "/sign-in",
+        "/preview/$id"
       ]
     },
     "/": {
@@ -163,6 +189,9 @@ export const routeTree = rootRoute
     "/_protected/dashboard": {
       "filePath": "_protected/dashboard.tsx",
       "parent": "/_protected"
+    },
+    "/preview/$id": {
+      "filePath": "preview.$id.tsx"
     }
   }
 }
