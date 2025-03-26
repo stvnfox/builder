@@ -6,6 +6,7 @@ import {
 	SidebarProvider,
 	SidebarTrigger,
 } from "@/components/ui/sidebar";
+import { ViewProvider } from "@/providers/view-provider";
 
 export const Route = createFileRoute("/_protected")({
 	beforeLoad: ({ context }) => {
@@ -18,15 +19,17 @@ export const Route = createFileRoute("/_protected")({
 	},
 	component: () => {
 		return (
-			<SidebarProvider>
-				<SidebarInset>
-					<main>
-						<SidebarTrigger className="lg:hidden" />
-						<Outlet />
-					</main>
-				</SidebarInset>
-				<AppSidebar />
-			</SidebarProvider>
+			<ViewProvider>
+				<SidebarProvider>
+					<SidebarInset>
+						<main>
+							<SidebarTrigger className="lg:hidden" />
+							<Outlet />
+						</main>
+					</SidebarInset>
+					<AppSidebar />
+				</SidebarProvider>
+			</ViewProvider>
 		);
 	},
 });
