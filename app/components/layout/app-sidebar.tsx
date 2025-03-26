@@ -29,7 +29,7 @@ export const AppSidebar: FunctionComponent = () => {
 			<SidebarHeader>
 				<PageSwitcher pages={pages} />
 			</SidebarHeader>
-			<SidebarContent>
+			<SidebarContent className="flex flex-col justify-between">
 				<BuilderNav />
 				<SettingsNav />
 			</SidebarContent>
