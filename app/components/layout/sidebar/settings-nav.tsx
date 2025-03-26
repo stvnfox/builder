@@ -1,3 +1,4 @@
+import type { FunctionComponent } from "react";
 import { Brush, Search, Settings, TrendingUp } from "lucide-react";
 
 import {
@@ -9,7 +10,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 
-export const SettingsNav = () => {
+export const SettingsNav: FunctionComponent = () => {
   const items = [
     {
       title: "General",
