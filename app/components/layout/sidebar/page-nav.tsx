@@ -20,7 +20,7 @@ export const PageNav: FunctionComponent = () => {
 
 	const items = [
 		{
-			title: "Builder",
+			title: "Page builder",
 			icon: Hammer,
 			setView: "builder",
 		},
@@ -33,18 +33,17 @@ export const PageNav: FunctionComponent = () => {
 
 	return (
 		<SidebarGroup>
-			<SidebarGroupLabel>Page</SidebarGroupLabel>
 			<SidebarGroupContent>
 				<SidebarMenu>
 					{items.map((item) => (
 						<SidebarMenuItem key={item.title}>
 							{item.url ? (
-								<SidebarMenuItem>
-									<Link to={item.url}>
+								<SidebarMenuButton asChild>
+									<Link to={item.url} className="w-full">
 										<item.icon className="text-muted-foreground" />
 										<span>{item.title}</span>
 									</Link>
-								</SidebarMenuItem>
+								</SidebarMenuButton>
 							) : (
 								<SidebarMenuButton
 									onClick={() => setView(item.setView as View)}
