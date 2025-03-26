@@ -1,4 +1,5 @@
 export type Page = {
-  name: string;
-  logo: React.ElementType;
+	name: string;
+	id: string;
+	logo: React.ElementType;
 };
