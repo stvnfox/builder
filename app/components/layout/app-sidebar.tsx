@@ -1,14 +1,8 @@
 import type { FunctionComponent } from "react";
-import {
-  Calendar,
-  ChevronUp,
-  Home,
-  Inbox,
-  Search,
-  Settings,
-  User2,
-} from "lucide-react";
+import { Brush, ChevronsUpDown, Home, Search, TrendingUp } from "lucide-react";
+import { SignOutButton, useUser } from "@clerk/tanstack-start";
 
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -19,44 +13,18 @@ import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { PageSwitcher } from "./page-switcher";
+import { SettingsNav } from "./sidebar/settings-nav";
 
 export const AppSidebar: FunctionComponent = () => {
-  const items = [
-    {
-      title: "Home",
-      url: "#",
-      icon: Home,
-    },
-    {
-      title: "Inbox",
-      url: "#",
-      icon: Inbox,
-    },
-    {
-      title: "Calendar",
-      url: "#",
-      icon: Calendar,
-    },
-    {
-      title: "Search",
-      url: "#",
-      icon: Search,
-    },
-    {
-      title: "Settings",
-      url: "#",
-      icon: Settings,
-    },
-  ];
+  const { user } = useUser();
+  const clerkUrl = import.meta.env.VITE_CLERK_ISSUER_URL;
+  const platformUrl = import.meta.env.VITE_PLATFORM_URL;
 
   const pages = [
     {
@@ -65,7 +33,7 @@ export const AppSidebar: FunctionComponent = () => {
     },
     {
       name: "Landing page 2",
-      logo: Home,   
+      logo: Home,
     },
   ];
 
@@ -75,46 +43,37 @@ export const AppSidebar: FunctionComponent = () => {
         <PageSwitcher pages={pages} />
       </SidebarHeader>
       <SidebarContent>
-        <SidebarGroup>
-          <SidebarGroupLabel>Application</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              {items.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <a href={item.url}>
-                      <item.icon />
-                      <span>{item.title}</span>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
+        <SettingsNav />
       </SidebarContent>
       <SidebarFooter>
         <SidebarMenu>
           <SidebarMenuItem>
             <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <SidebarMenuButton>
-                  <User2 /> Username
-                  <ChevronUp className="ml-auto" />
+              <DropdownMenuTrigger asChild className="h-auto">
+                <SidebarMenuButton className="font-medium">
+                  <Avatar>
+                    <AvatarImage
+                      src={user?.imageUrl}
+                      alt={user?.username ?? ""}
+                    />
+                    <AvatarFallback>{user?.username?.charAt(0)}</AvatarFallback>
+                  </Avatar>
+                  {user?.username ?? ""}
+                  <ChevronsUpDown className="ml-auto" />
                 </SidebarMenuButton>
               </DropdownMenuTrigger>
-              <DropdownMenuContent
-                side="top"
-                className="w-[224px]"
-              >
-                <DropdownMenuItem>
-                  <span>Account</span>
+              <DropdownMenuContent side="top" className="w-[224px]">
+                <DropdownMenuItem asChild>
+                  <a
+                    href={`${clerkUrl}/user?redirect_url=${platformUrl}/dashboard`}
+                  >
+                    Account
+                  </a>
                 </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <span>Billing</span>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <span>Sign out</span>
+                <DropdownMenuItem asChild>
+                  <SignOutButton>
+                    <span>Sign out</span>
+                  </SignOutButton>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
