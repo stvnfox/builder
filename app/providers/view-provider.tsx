@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useState } from "react";
 
-type View = "builder" | "settings" | "theme" | "seo" | "analytics";
+import type { View } from "@/types/views";
 
 type ViewContextType = {
 	view: View;
