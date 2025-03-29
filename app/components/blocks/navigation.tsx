@@ -39,7 +39,7 @@ export const NavigationComponent: FunctionComponent<
 	signUpRedirectUrl,
 }) => {
 	return (
-		<section className="container sticky top-0 z-40 mx-auto flex items-center justify-between bg-background py-8">
+		<section className="sticky top-0 z-40 flex items-center justify-between bg-background py-8">
 			<Link to="/" className="flex items-center gap-2 text-2xl">
 				{icon && createElement(icon, { className: "h-8 w-8" })}
 				<span className="hidden sm:block">{title}</span>

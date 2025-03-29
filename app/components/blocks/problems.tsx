@@ -18,7 +18,7 @@ export const ProblemsComponent: FunctionComponent<ProblemsComponentProps> = ({
 	problems,
 }) => {
 	return (
-		<div className="container mx-auto my-20 lg:my-32">
+		<div className="my-20 lg:my-32">
 			<div className="flex flex-col items-center gap-4">
 				<h2 className="text-balance text-center font-regular text-4xl leading-[1.1]! tracking-tighter md:text-6xl lg:max-w-xl">
 					{title}

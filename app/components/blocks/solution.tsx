@@ -19,7 +19,7 @@ export const SolutionComponent: FunctionComponent<SolutionComponentProps> = ({
 	const isInView = useInView(ref, { once: true, margin: "-160px" });
 
 	return (
-		<div ref={ref} className="container mx-auto my-20 lg:my-40">
+		<div ref={ref} className="my-20 lg:my-40">
 			<div
 				className="grid grid-cols-1 items-center gap-8 text-muted-foreground lg:grid-cols-2 lg:gap-16"
 				style={{

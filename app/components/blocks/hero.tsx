@@ -33,7 +33,7 @@ export const HeroComponent: FunctionComponent<HeroComponentProps> = ({
 	//   const ph = usePostHog();
 
 	return (
-		<div className="container mx-auto my-20 lg:my-40">
+		<div className="my-20 lg:my-40">
 			<div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-16">
 				<div className="flex flex-col gap-8">
 					<div className="flex flex-col gap-8">
