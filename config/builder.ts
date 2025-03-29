@@ -118,4 +118,36 @@ export const builderConfig = {
 			},
 		],
 	},
+	faq: {
+		title: "Frequently Asked Questions",
+		description:
+			"Have questions about using Builder? We've got you covered. Below are some of the most common questions we get from our users. If you don’t find your answer here, feel free to reach out to us!",
+		faqs: [
+			{
+				question: "Do I need coding skills to use Builder?",
+				answer:
+					"No, Builder is designed for everyone, no coding skills required. Simply drag, drop, and customize your content.",
+			},
+			{
+				question: "Can I use my own domain with Builder?",
+				answer:
+					"Yes, you can easily connect your own domain to your landing page, making it fully branded to your business.",
+			},
+			{
+				question: "Is Builder mobile-friendly?",
+				answer:
+					"Absolutely! All pages built with Builder are automatically optimized for mobile devices.",
+			},
+			{
+				question: "How long does it take to create a landing page?",
+				answer:
+					"You can have a fully functional landing page live in minutes, thanks to our easy-to-use interface and templates.",
+			},
+			{
+				question: "Can I use Builder's AI assistant to write my content?",
+				answer:
+					"Yes, Builder's AI assistant is a tool that helps you create content for your landing page. It uses natural language processing to understand your needs and generate content that is relevant to your business.",
+			},
+		],
+	},
 };

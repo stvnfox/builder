@@ -8,14 +8,23 @@ import { ProblemsComponent } from "@/components/blocks/problems";
 import { SolutionComponent } from "@/components/blocks/solution";
 import { BenefitsComponent } from "@/components/blocks/benefits";
 import { ActionsComponent } from "@/components/blocks/actions";
+import { FAQComponent } from "@/components/blocks/faq";
 
 export const Route = createFileRoute("/")({
 	component: Home,
 });
 
 function Home() {
-	const { navigation, hero, settings, problems, solution, benefits, actions } =
-		builderConfig;
+	const {
+		navigation,
+		hero,
+		settings,
+		problems,
+		solution,
+		benefits,
+		actions,
+		faq,
+	} = builderConfig;
 
 	return (
 		<div className="container mx-auto px-4">
@@ -52,6 +61,11 @@ function Home() {
 				subtitle={actions.subtitle}
 				image={actions.image}
 				actions={actions.actions}
+			/>
+			<FAQComponent
+				title={faq.title}
+				description={faq.description}
+				faqs={faq.faqs}
 			/>
 		</div>
 	);
