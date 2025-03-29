@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 
 import { Button } from "@/components/ui/button";
 import { SignInButton, SignUpButton } from "@clerk/tanstack-start";
+import { WaitingListTrigger } from "@/components/waiting-list/waiting-list-trigger";
 
 export const NavigationComponent: FunctionComponent = () => {
 	const url = import.meta.env.VITE_PLATFORM_URL;
@@ -47,6 +48,7 @@ export const NavigationComponent: FunctionComponent = () => {
 					<Button asChild>
 						<SignUpButton />
 					</Button>
+					<WaitingListTrigger label="Join the waiting list" />
 				</div>
 			</div>
 		</section>
