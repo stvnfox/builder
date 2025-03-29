@@ -10,6 +10,7 @@ import { BenefitsComponent } from "@/components/blocks/benefits";
 import { ActionsComponent } from "@/components/blocks/actions";
 import { FAQComponent } from "@/components/blocks/faq";
 import { CallToActionComponent } from "@/components/blocks/call-to-action";
+import { FooterComponent } from "@/components/blocks/footer";
 
 export const Route = createFileRoute("/")({
 	component: Home,
@@ -26,6 +27,7 @@ function Home() {
 		actions,
 		faq,
 		cta,
+		footer,
 	} = builderConfig;
 
 	return (
@@ -76,6 +78,11 @@ function Home() {
 				button={cta.button}
 				showWaitingList={settings.showWaitingList}
 				waitingListLabel={settings.waitingListLabel}
+			/>
+			<FooterComponent
+				name={navigation.title}
+				links={footer.links}
+				socials={footer.socials}
 			/>
 		</div>
 	);

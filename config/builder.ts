@@ -164,4 +164,18 @@ export const builderConfig = {
 			openInNewTab: false,
 		},
 	},
+	footer: {
+		links: [
+			{ label: "Privacy Policy", href: "/privacy-policy" },
+			{ label: "Cookie Policy", href: "/cookie-policy" },
+			{ label: "Terms of Service", href: "/terms-of-service" },
+		],
+		socials: {
+			linkedin: "https://www.linkedin.com/company/builder",
+			facebook: "https://www.facebook.com/builder",
+			instagram: "https://www.instagram.com/builder",
+			x: "https://www.x.com/builder",
+			youtube: "https://www.youtube.com/channel/UC_9-kyTW8ZkZNDHQJ6FgpwQ",
+		},
+	},
 };
