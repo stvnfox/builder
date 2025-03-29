@@ -67,7 +67,7 @@ const BenefitItem: FunctionComponent<{
 				transition: `all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) ${index * 0.5}s`,
 			}}
 		>
-			<Check className="min-h-4 min-w-4 text-primary" />
+			<Check className="min-h-6 min-w-6 text-primary" />
 			<div className="flex flex-col gap-1">
 				<h3 className="font-medium text-lg">{title}</h3>
 				<p className="[&_a>span]:no-underline! [&_a]:underline-hover text-muted-foreground [&_a]:text-primary [&_a]:after:bg-primary">
