@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { convexQuery } from "@convex-dev/react-query";
-import { useSuspenseQuery } from "@tanstack/react-query";
+// import { convexQuery } from "@convex-dev/react-query";
+// import { useSuspenseQuery } from "@tanstack/react-query";
 
-import { api } from "@convex/_generated/api";
+// import { api } from "@convex/_generated/api";
 
 import { DashboardWrapper } from "@/components/dashboard/dashboard-wrapper";
 
@@ -11,7 +11,7 @@ export const Route = createFileRoute("/_protected/dashboard")({
 });
 
 function RouteComponent() {
-	const { data } = useSuspenseQuery(convexQuery(api.tasks.get, {}));
+	// const { data } = useSuspenseQuery(convexQuery(api.tasks.get, {}));
 
 	return <DashboardWrapper />;
 }
