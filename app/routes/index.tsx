@@ -7,13 +7,14 @@ import { HeroComponent } from "@/components/blocks/hero";
 import { ProblemsComponent } from "@/components/blocks/problems";
 import { SolutionComponent } from "@/components/blocks/solution";
 import { BenefitsComponent } from "@/components/blocks/benefits";
+import { ActionsComponent } from "@/components/blocks/actions";
 
 export const Route = createFileRoute("/")({
 	component: Home,
 });
 
 function Home() {
-	const { navigation, hero, settings, problems, solution, benefits } =
+	const { navigation, hero, settings, problems, solution, benefits, actions } =
 		builderConfig;
 
 	return (
@@ -45,6 +46,12 @@ function Home() {
 				title={benefits.title}
 				description={benefits.description}
 				items={benefits.items}
+			/>
+			<ActionsComponent
+				title={actions.title}
+				subtitle={actions.subtitle}
+				image={actions.image}
+				actions={actions.actions}
 			/>
 		</div>
 	);

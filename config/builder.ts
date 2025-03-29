@@ -1,7 +1,8 @@
 import { HandMetal } from "lucide-react";
 
-import solutionImage from "@/assets/header.svg?url";
+import solutionImage from "@/assets/drawing-1.svg?url";
 import heroImage from "@/assets/drawing-2.svg?url";
+import actionsImage from "@/assets/drawing-5.svg?url";
 
 export const builderConfig = {
 	settings: {
@@ -85,6 +86,35 @@ export const builderConfig = {
 				title: "Easy Scalability",
 				description:
 					"As your business grows, Builder grows with you—no need to rebuild your pages from scratch.",
+			},
+		],
+	},
+	actions: {
+		title: "Get Started with Builder Today",
+		subtitle: "How it Works",
+		image: {
+			url: actionsImage,
+		},
+		actions: [
+			{
+				title: "Sign Up and Create a Page",
+				description:
+					"Create your account in seconds and get instant access to all of Builder’s features.",
+			},
+			{
+				title: "Choose Your Template",
+				description:
+					"Select from a variety of professionally designed templates to get started with a great layout.",
+			},
+			{
+				title: "Customize Your Page",
+				description:
+					"Use our easy drag-and-drop tools to customize your page and add your own content. Need help with your content? We've got you covered with our built-in AI assistant.",
+			},
+			{
+				title: "Publish Your Page",
+				description:
+					"Once you’re happy with your landing page, publish it with a single click and share it with the world.",
 			},
 		],
 	},
