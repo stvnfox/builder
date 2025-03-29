@@ -1,6 +1,7 @@
 import { HandMetal } from "lucide-react";
 
-import heroImage from "@/assets/header.svg?url";
+import solutionImage from "@/assets/header.svg?url";
+import heroImage from "@/assets/drawing-2.svg?url";
 
 export const builderConfig = {
 	settings: {
@@ -31,7 +32,7 @@ export const builderConfig = {
 		],
 	},
 	hero: {
-		title: "Launch your new landing page in minutes!",
+		title: "Launch Your New Landing Page in Minutes!",
 		description:
 			"Introducing Builder—the intuitive platform that empowers you to create sleek, professional landing pages for your projects in minutes, not days. No coding skills required.",
 		image: {
@@ -45,7 +46,7 @@ export const builderConfig = {
 		},
 	},
 	problems: {
-		title: "Problems we solve",
+		title: "Problems We Solve",
 		description:
 			"Building a landing page should be easy, but too often, it’s complicated, time-consuming, and frustrating. With Builder, we simplify the process so you can focus on what matters—your message.",
 		problems: [
@@ -56,5 +57,13 @@ export const builderConfig = {
 			"Balancing information and simplicity is difficult",
 			"I'm unsure about the best layout for conversion",
 		],
+	},
+	solution: {
+		title: "The Simple Solution to Building Stunning Landing Pages",
+		description:
+			"With Builder, creating a beautiful, high-converting landing page is effortless. Whether you’re a business owner, marketer, or entrepreneur, you no longer need technical skills or endless hours to build a page that works. Our drag-and-drop interface, customizable templates, and mobile optimization tools give you everything you need to get online fast and look great doing it. Build your landing page in minutes, not hours, and focus on growing your business.",
+		image: {
+			url: solutionImage,
+		},
 	},
 };

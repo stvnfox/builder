@@ -5,13 +5,14 @@ import { builderConfig } from "config/builder";
 import { NavigationComponent } from "@/components/blocks/navigation";
 import { HeroComponent } from "@/components/blocks/hero";
 import { ProblemsComponent } from "@/components/blocks/problems";
+import { SolutionComponent } from "@/components/blocks/solution";
 
 export const Route = createFileRoute("/")({
 	component: Home,
 });
 
 function Home() {
-	const { navigation, hero, settings, problems } = builderConfig;
+	const { navigation, hero, settings, problems, solution } = builderConfig;
 
 	return (
 		<>
@@ -32,6 +33,11 @@ function Home() {
 				title={problems.title}
 				description={problems.description}
 				problems={problems.problems}
+			/>
+			<SolutionComponent
+				title={solution.title}
+				description={solution.description}
+				image={solution.image}
 			/>
 		</>
 	);
