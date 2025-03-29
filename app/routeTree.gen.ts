@@ -12,6 +12,7 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as SignInImport } from './routes/sign-in'
+import { Route as PrivacyPolicyImport } from './routes/privacy-policy'
 import { Route as ProtectedImport } from './routes/_protected'
 import { Route as IndexImport } from './routes/index'
 import { Route as PreviewIdImport } from './routes/preview.$id'
@@ -22,6 +23,12 @@ import { Route as ProtectedDashboardImport } from './routes/_protected/dashboard
 const SignInRoute = SignInImport.update({
   id: '/sign-in',
   path: '/sign-in',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const PrivacyPolicyRoute = PrivacyPolicyImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -66,6 +73,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProtectedImport
       parentRoute: typeof rootRoute
     }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyImport
+      parentRoute: typeof rootRoute
+    }
     '/sign-in': {
       id: '/sign-in'
       path: '/sign-in'
@@ -107,6 +121,7 @@ const ProtectedRouteWithChildren = ProtectedRoute._addFileChildren(
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '': typeof ProtectedRouteWithChildren
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/sign-in': typeof SignInRoute
   '/dashboard': typeof ProtectedDashboardRoute
   '/preview/$id': typeof PreviewIdRoute
@@ -115,6 +130,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '': typeof ProtectedRouteWithChildren
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/sign-in': typeof SignInRoute
   '/dashboard': typeof ProtectedDashboardRoute
   '/preview/$id': typeof PreviewIdRoute
@@ -124,6 +140,7 @@ export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/_protected': typeof ProtectedRouteWithChildren
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/sign-in': typeof SignInRoute
   '/_protected/dashboard': typeof ProtectedDashboardRoute
   '/preview/$id': typeof PreviewIdRoute
@@ -131,13 +148,20 @@ export interface FileRoutesById {
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '' | '/sign-in' | '/dashboard' | '/preview/$id'
+  fullPaths:
+    | '/'
+    | ''
+    | '/privacy-policy'
+    | '/sign-in'
+    | '/dashboard'
+    | '/preview/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '' | '/sign-in' | '/dashboard' | '/preview/$id'
+  to: '/' | '' | '/privacy-policy' | '/sign-in' | '/dashboard' | '/preview/$id'
   id:
     | '__root__'
     | '/'
     | '/_protected'
+    | '/privacy-policy'
     | '/sign-in'
     | '/_protected/dashboard'
     | '/preview/$id'
@@ -147,6 +171,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ProtectedRoute: typeof ProtectedRouteWithChildren
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   SignInRoute: typeof SignInRoute
   PreviewIdRoute: typeof PreviewIdRoute
 }
@@ -154,6 +179,7 @@ export interface RootRouteChildren {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ProtectedRoute: ProtectedRouteWithChildren,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
   SignInRoute: SignInRoute,
   PreviewIdRoute: PreviewIdRoute,
 }
@@ -170,6 +196,7 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/_protected",
+        "/privacy-policy",
         "/sign-in",
         "/preview/$id"
       ]
@@ -182,6 +209,9 @@ export const routeTree = rootRoute
       "children": [
         "/_protected/dashboard"
       ]
+    },
+    "/privacy-policy": {
+      "filePath": "privacy-policy.tsx"
     },
     "/sign-in": {
       "filePath": "sign-in.tsx"
