@@ -66,4 +66,26 @@ export const builderConfig = {
 			url: solutionImage,
 		},
 	},
+	benefits: {
+		title: "Why Choose Builder?",
+		description:
+			"Builder is designed to save you time, effort, and stress while creating a landing page that works. Here are just a few reasons why Builder is the perfect choice for your next landing page:",
+		items: [
+			{
+				title: "Quick Setup",
+				description:
+					"Get your landing page live in minutes, not days, with our intuitive drag-and-drop builder.",
+			},
+			{
+				title: "Professional Designs",
+				description:
+					"Choose from a variety of customizable templates, designed to look great on any device.",
+			},
+			{
+				title: "Easy Scalability",
+				description:
+					"As your business grows, Builder grows with you—no need to rebuild your pages from scratch.",
+			},
+		],
+	},
 };

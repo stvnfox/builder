@@ -6,16 +6,18 @@ import { NavigationComponent } from "@/components/blocks/navigation";
 import { HeroComponent } from "@/components/blocks/hero";
 import { ProblemsComponent } from "@/components/blocks/problems";
 import { SolutionComponent } from "@/components/blocks/solution";
+import { BenefitsComponent } from "@/components/blocks/benefits";
 
 export const Route = createFileRoute("/")({
 	component: Home,
 });
 
 function Home() {
-	const { navigation, hero, settings, problems, solution } = builderConfig;
+	const { navigation, hero, settings, problems, solution, benefits } =
+		builderConfig;
 
 	return (
-		<>
+		<div className="container mx-auto px-4">
 			<NavigationComponent
 				title={navigation.title}
 				icon={navigation.icon}
@@ -39,6 +41,11 @@ function Home() {
 				description={solution.description}
 				image={solution.image}
 			/>
-		</>
+			<BenefitsComponent
+				title={benefits.title}
+				description={benefits.description}
+				items={benefits.items}
+			/>
+		</div>
 	);
 }
