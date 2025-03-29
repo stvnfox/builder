@@ -9,6 +9,7 @@ import { Link } from "@tanstack/react-router";
 import { toast } from "sonner";
 import { useMutation } from "@tanstack/react-query";
 import { useConvexMutation } from "@convex-dev/react-query";
+import { api } from "@convex/_generated/api";
 
 import { sendEmailToSubscriber } from "./helpers/send-email";
 
@@ -24,8 +25,6 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Spinner } from "@/components/ui/spinner";
-import { addToWaitingList } from "@convex/waiting_list";
-import { api } from "@convex/_generated/api";
 
 const formSchema = z.object({
 	name: z.string().min(1, { message: "Name is required" }),
@@ -77,8 +76,6 @@ export const WaitingListForm: FunctionComponent<WaitingListFormProps> = ({
 			name: values.name,
 			email: values.email,
 		});
-
-		console.log(response);
 
 		if (response.status === 200) {
 			handleSuccess({ name: values.name });

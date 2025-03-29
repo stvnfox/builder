@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 
 import { Button } from "@/components/ui/button";
 import { SignInButton, SignUpButton } from "@clerk/tanstack-start";
-import { WaitingListTrigger } from "@/components/waiting-list/waiting-list-trigger";
+import { WaitingListTrigger } from "@/components/blocks/waiting-list/waiting-list-trigger";
 
 type NavigationItem = {
 	label: string;
@@ -53,7 +53,7 @@ export const NavigationComponent: FunctionComponent<
 									to={link.href}
 									aria-label={link.ariaLabel}
 									className={cn(
-										"underline-hover text-sm after:bg-neutral-50",
+										"underline-hover text-sm after:bg-primary",
 										link.disabled && "pointer-events-none opacity-50",
 									)}
 								>

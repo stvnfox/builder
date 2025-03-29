@@ -12,16 +12,18 @@ import {
 	DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { WaitingListForm } from "@/components/waiting-list/waiting-list-form";
+import { WaitingListForm } from "@/components/blocks/waiting-list/waiting-list-form";
 
 type WaitingListTriggerProps = {
 	label: string;
 	effect?: boolean;
+	size?: "default" | "xl";
 };
 
 export const WaitingListTrigger: FunctionComponent<WaitingListTriggerProps> = ({
 	label,
 	effect = false,
+	size = "default",
 }) => {
 	// const ph = usePostHog();
 
@@ -42,10 +44,10 @@ export const WaitingListTrigger: FunctionComponent<WaitingListTriggerProps> = ({
 				{effect ? (
 					<div className="group relative overflow-hidden rounded-md p-[2px]">
 						<div className="absolute inset-0 z-[-1] h-full w-full animate-rotate rounded-full bg-[conic-gradient(rgba(255,255,255,0.4)_20deg,transparent_120deg)] group-hover:bg-none" />
-						<Button>{label}</Button>
+						<Button size={size}>{label}</Button>
 					</div>
 				) : (
-					<Button>{label}</Button>
+					<Button size={size}>{label}</Button>
 				)}
 			</DialogTrigger>
 			<DialogContent className="sm:max-w-[425px]">
