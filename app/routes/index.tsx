@@ -9,6 +9,7 @@ import { SolutionComponent } from "@/components/blocks/solution";
 import { BenefitsComponent } from "@/components/blocks/benefits";
 import { ActionsComponent } from "@/components/blocks/actions";
 import { FAQComponent } from "@/components/blocks/faq";
+import { CallToActionComponent } from "@/components/blocks/call-to-action";
 
 export const Route = createFileRoute("/")({
 	component: Home,
@@ -24,6 +25,7 @@ function Home() {
 		benefits,
 		actions,
 		faq,
+		cta,
 	} = builderConfig;
 
 	return (
@@ -66,6 +68,14 @@ function Home() {
 				title={faq.title}
 				description={faq.description}
 				faqs={faq.faqs}
+			/>
+			<CallToActionComponent
+				title={cta.title}
+				description={cta.description}
+				image={cta.image}
+				button={cta.button}
+				showWaitingList={settings.showWaitingList}
+				waitingListLabel={settings.waitingListLabel}
 			/>
 		</div>
 	);

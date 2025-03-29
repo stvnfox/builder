@@ -3,6 +3,7 @@ import { HandMetal } from "lucide-react";
 import solutionImage from "@/assets/drawing-1.svg?url";
 import heroImage from "@/assets/drawing-2.svg?url";
 import actionsImage from "@/assets/drawing-5.svg?url";
+import ctaImage from "@/assets/drawing-10.svg?url";
 
 export const builderConfig = {
 	settings: {
@@ -149,5 +150,18 @@ export const builderConfig = {
 					"Yes, Builder's AI assistant is a tool that helps you create content for your landing page. It uses natural language processing to understand your needs and generate content that is relevant to your business.",
 			},
 		],
+	},
+	cta: {
+		title: "Ready to Build Your Perfect Landing Page?",
+		description:
+			"Don’t wait any longer! Sign up today and start building a landing page that will help your business grow. With Builder, you can have a beautiful, high-converting page live in minutes—no coding required.",
+		image: {
+			url: ctaImage,
+		},
+		button: {
+			label: "Get started now!",
+			href: "/",
+			openInNewTab: false,
+		},
 	},
 };
