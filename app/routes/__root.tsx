@@ -117,7 +117,7 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
 	const { theme } = useTheme();
 
 	return (
-		<html lang="en" className={theme}>
+		<html lang="en">
 			<head>
 				<HeadContent />
 			</head>

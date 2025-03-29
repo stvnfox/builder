@@ -44,4 +44,17 @@ export const builderConfig = {
 			openInNewTab: false,
 		},
 	},
+	problems: {
+		title: "Problems we solve",
+		description:
+			"Building a landing page should be easy, but too often, it’s complicated, time-consuming, and frustrating. With Builder, we simplify the process so you can focus on what matters—your message.",
+		problems: [
+			"I need to launch quickly but quality takes time",
+			"My designs look amateur compared to competitors",
+			"Coding feels overwhelming and I don't know where to start",
+			"Making the page accessible seems complex",
+			"Balancing information and simplicity is difficult",
+			"I'm unsure about the best layout for conversion",
+		],
+	},
 };

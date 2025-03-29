@@ -2,15 +2,16 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { builderConfig } from "config/builder";
 
-import { NavigationComponent } from "@/components/blocks/navigation/navigation";
-import { HeroComponent } from "@/components/blocks/hero/hero";
+import { NavigationComponent } from "@/components/blocks/navigation";
+import { HeroComponent } from "@/components/blocks/hero";
+import { ProblemsComponent } from "@/components/blocks/problems";
 
 export const Route = createFileRoute("/")({
 	component: Home,
 });
 
 function Home() {
-	const { navigation, hero, settings } = builderConfig;
+	const { navigation, hero, settings, problems } = builderConfig;
 
 	return (
 		<>
@@ -26,6 +27,11 @@ function Home() {
 				image={hero.image}
 				callToAction={hero.callToAction}
 				showWaitingList={settings.showWaitingList}
+			/>
+			<ProblemsComponent
+				title={problems.title}
+				description={problems.description}
+				problems={problems.problems}
 			/>
 		</>
 	);
