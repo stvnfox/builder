@@ -1,4 +1,3 @@
-import * as React from "react";
 import {
 	Html,
 	Heading,
@@ -8,9 +7,7 @@ import {
 	Container,
 	Head,
 	Preview,
-	Hr,
 	Section,
-	Img,
 } from "@react-email/components";
 import { HandMetal } from "lucide-react";
 

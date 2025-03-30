@@ -1,4 +1,3 @@
-import * as React from "react";
 import {
 	Html,
 	Heading,
@@ -15,7 +14,6 @@ import {
 	Row,
 } from "@react-email/components";
 import {
-	CheckIcon,
 	Hammer,
 	HandMetal,
 	PanelsTopLeft,
