@@ -12,11 +12,14 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as SignInImport } from './routes/sign-in'
-import { Route as PrivacyPolicyImport } from './routes/privacy-policy'
 import { Route as ProtectedImport } from './routes/_protected'
+import { Route as PoliciesImport } from './routes/_policies'
 import { Route as IndexImport } from './routes/index'
 import { Route as PreviewIdImport } from './routes/preview.$id'
 import { Route as ProtectedDashboardImport } from './routes/_protected/dashboard'
+import { Route as PoliciesTermsOfServiceImport } from './routes/_policies/terms-of-service'
+import { Route as PoliciesPrivacyPolicyImport } from './routes/_policies/privacy-policy'
+import { Route as PoliciesCookiePolicyImport } from './routes/_policies/cookie-policy'
 
 // Create/Update Routes
 
@@ -26,14 +29,13 @@ const SignInRoute = SignInImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const PrivacyPolicyRoute = PrivacyPolicyImport.update({
-  id: '/privacy-policy',
-  path: '/privacy-policy',
+const ProtectedRoute = ProtectedImport.update({
+  id: '/_protected',
   getParentRoute: () => rootRoute,
 } as any)
 
-const ProtectedRoute = ProtectedImport.update({
-  id: '/_protected',
+const PoliciesRoute = PoliciesImport.update({
+  id: '/_policies',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -55,6 +57,24 @@ const ProtectedDashboardRoute = ProtectedDashboardImport.update({
   getParentRoute: () => ProtectedRoute,
 } as any)
 
+const PoliciesTermsOfServiceRoute = PoliciesTermsOfServiceImport.update({
+  id: '/terms-of-service',
+  path: '/terms-of-service',
+  getParentRoute: () => PoliciesRoute,
+} as any)
+
+const PoliciesPrivacyPolicyRoute = PoliciesPrivacyPolicyImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => PoliciesRoute,
+} as any)
+
+const PoliciesCookiePolicyRoute = PoliciesCookiePolicyImport.update({
+  id: '/cookie-policy',
+  path: '/cookie-policy',
+  getParentRoute: () => PoliciesRoute,
+} as any)
+
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
@@ -66,18 +86,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/_policies': {
+      id: '/_policies'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof PoliciesImport
+      parentRoute: typeof rootRoute
+    }
     '/_protected': {
       id: '/_protected'
       path: ''
       fullPath: ''
       preLoaderRoute: typeof ProtectedImport
-      parentRoute: typeof rootRoute
-    }
-    '/privacy-policy': {
-      id: '/privacy-policy'
-      path: '/privacy-policy'
-      fullPath: '/privacy-policy'
-      preLoaderRoute: typeof PrivacyPolicyImport
       parentRoute: typeof rootRoute
     }
     '/sign-in': {
@@ -86,6 +106,27 @@ declare module '@tanstack/react-router' {
       fullPath: '/sign-in'
       preLoaderRoute: typeof SignInImport
       parentRoute: typeof rootRoute
+    }
+    '/_policies/cookie-policy': {
+      id: '/_policies/cookie-policy'
+      path: '/cookie-policy'
+      fullPath: '/cookie-policy'
+      preLoaderRoute: typeof PoliciesCookiePolicyImport
+      parentRoute: typeof PoliciesImport
+    }
+    '/_policies/privacy-policy': {
+      id: '/_policies/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PoliciesPrivacyPolicyImport
+      parentRoute: typeof PoliciesImport
+    }
+    '/_policies/terms-of-service': {
+      id: '/_policies/terms-of-service'
+      path: '/terms-of-service'
+      fullPath: '/terms-of-service'
+      preLoaderRoute: typeof PoliciesTermsOfServiceImport
+      parentRoute: typeof PoliciesImport
     }
     '/_protected/dashboard': {
       id: '/_protected/dashboard'
@@ -106,6 +147,22 @@ declare module '@tanstack/react-router' {
 
 // Create and export the route tree
 
+interface PoliciesRouteChildren {
+  PoliciesCookiePolicyRoute: typeof PoliciesCookiePolicyRoute
+  PoliciesPrivacyPolicyRoute: typeof PoliciesPrivacyPolicyRoute
+  PoliciesTermsOfServiceRoute: typeof PoliciesTermsOfServiceRoute
+}
+
+const PoliciesRouteChildren: PoliciesRouteChildren = {
+  PoliciesCookiePolicyRoute: PoliciesCookiePolicyRoute,
+  PoliciesPrivacyPolicyRoute: PoliciesPrivacyPolicyRoute,
+  PoliciesTermsOfServiceRoute: PoliciesTermsOfServiceRoute,
+}
+
+const PoliciesRouteWithChildren = PoliciesRoute._addFileChildren(
+  PoliciesRouteChildren,
+)
+
 interface ProtectedRouteChildren {
   ProtectedDashboardRoute: typeof ProtectedDashboardRoute
 }
@@ -121,8 +178,10 @@ const ProtectedRouteWithChildren = ProtectedRoute._addFileChildren(
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '': typeof ProtectedRouteWithChildren
-  '/privacy-policy': typeof PrivacyPolicyRoute
   '/sign-in': typeof SignInRoute
+  '/cookie-policy': typeof PoliciesCookiePolicyRoute
+  '/privacy-policy': typeof PoliciesPrivacyPolicyRoute
+  '/terms-of-service': typeof PoliciesTermsOfServiceRoute
   '/dashboard': typeof ProtectedDashboardRoute
   '/preview/$id': typeof PreviewIdRoute
 }
@@ -130,8 +189,10 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '': typeof ProtectedRouteWithChildren
-  '/privacy-policy': typeof PrivacyPolicyRoute
   '/sign-in': typeof SignInRoute
+  '/cookie-policy': typeof PoliciesCookiePolicyRoute
+  '/privacy-policy': typeof PoliciesPrivacyPolicyRoute
+  '/terms-of-service': typeof PoliciesTermsOfServiceRoute
   '/dashboard': typeof ProtectedDashboardRoute
   '/preview/$id': typeof PreviewIdRoute
 }
@@ -139,9 +200,12 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/_policies': typeof PoliciesRouteWithChildren
   '/_protected': typeof ProtectedRouteWithChildren
-  '/privacy-policy': typeof PrivacyPolicyRoute
   '/sign-in': typeof SignInRoute
+  '/_policies/cookie-policy': typeof PoliciesCookiePolicyRoute
+  '/_policies/privacy-policy': typeof PoliciesPrivacyPolicyRoute
+  '/_policies/terms-of-service': typeof PoliciesTermsOfServiceRoute
   '/_protected/dashboard': typeof ProtectedDashboardRoute
   '/preview/$id': typeof PreviewIdRoute
 }
@@ -151,18 +215,31 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | ''
-    | '/privacy-policy'
     | '/sign-in'
+    | '/cookie-policy'
+    | '/privacy-policy'
+    | '/terms-of-service'
     | '/dashboard'
     | '/preview/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '' | '/privacy-policy' | '/sign-in' | '/dashboard' | '/preview/$id'
+  to:
+    | '/'
+    | ''
+    | '/sign-in'
+    | '/cookie-policy'
+    | '/privacy-policy'
+    | '/terms-of-service'
+    | '/dashboard'
+    | '/preview/$id'
   id:
     | '__root__'
     | '/'
+    | '/_policies'
     | '/_protected'
-    | '/privacy-policy'
     | '/sign-in'
+    | '/_policies/cookie-policy'
+    | '/_policies/privacy-policy'
+    | '/_policies/terms-of-service'
     | '/_protected/dashboard'
     | '/preview/$id'
   fileRoutesById: FileRoutesById
@@ -170,16 +247,16 @@ export interface FileRouteTypes {
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  PoliciesRoute: typeof PoliciesRouteWithChildren
   ProtectedRoute: typeof ProtectedRouteWithChildren
-  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   SignInRoute: typeof SignInRoute
   PreviewIdRoute: typeof PreviewIdRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  PoliciesRoute: PoliciesRouteWithChildren,
   ProtectedRoute: ProtectedRouteWithChildren,
-  PrivacyPolicyRoute: PrivacyPolicyRoute,
   SignInRoute: SignInRoute,
   PreviewIdRoute: PreviewIdRoute,
 }
@@ -195,8 +272,8 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
+        "/_policies",
         "/_protected",
-        "/privacy-policy",
         "/sign-in",
         "/preview/$id"
       ]
@@ -204,17 +281,34 @@ export const routeTree = rootRoute
     "/": {
       "filePath": "index.tsx"
     },
+    "/_policies": {
+      "filePath": "_policies.tsx",
+      "children": [
+        "/_policies/cookie-policy",
+        "/_policies/privacy-policy",
+        "/_policies/terms-of-service"
+      ]
+    },
     "/_protected": {
       "filePath": "_protected.tsx",
       "children": [
         "/_protected/dashboard"
       ]
     },
-    "/privacy-policy": {
-      "filePath": "privacy-policy.tsx"
-    },
     "/sign-in": {
       "filePath": "sign-in.tsx"
+    },
+    "/_policies/cookie-policy": {
+      "filePath": "_policies/cookie-policy.tsx",
+      "parent": "/_policies"
+    },
+    "/_policies/privacy-policy": {
+      "filePath": "_policies/privacy-policy.tsx",
+      "parent": "/_policies"
+    },
+    "/_policies/terms-of-service": {
+      "filePath": "_policies/terms-of-service.tsx",
+      "parent": "/_policies"
     },
     "/_protected/dashboard": {
       "filePath": "_protected/dashboard.tsx",

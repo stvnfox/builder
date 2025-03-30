@@ -59,7 +59,39 @@ export const Route = createRootRouteWithContext<{
 				content: "width=device-width, initial-scale=1",
 			},
 			{
-				title: "builder - the easiest way to build your landing page",
+				title: "Builder - the easiest way to build your landing page",
+			},
+			{
+				name: "og:title",
+				content: "Builder - the easiest way to build your landing page",
+			},
+			{
+				name: "og:description",
+				content:
+					"Transform your ideas into high-converting landing pages. Save time and money with our professional builder - no design or coding skills needed.",
+			},
+			// TODO: Add og:image
+			// {
+			// 	name: "og:image",
+			// 	content: "https://www.build-r.dev/og-image.png",
+			// },
+			{
+				name: "og:url",
+				content: "https://www.build-r.dev",
+			},
+			{
+				name: "og:type",
+				content: "website",
+			},
+			{
+				name: "keywords",
+				content:
+					"landing page builder, landing page creator, landing page design, landing page development, landing page builder software, landing page builder tool, landing page builder app, landing page builder platform, landing page builder service",
+			},
+			{
+				name: "description",
+				content:
+					"Transform your ideas into high-converting landing pages. Save time and money with our professional builder - no design or coding skills needed.",
 			},
 		],
 		links: [
@@ -117,9 +149,17 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
 	const { theme } = useTheme();
 
 	return (
-		<html lang="en">
+		<html lang="en" className={theme}>
 			<head>
 				<HeadContent />
+				<script
+					id={"Cookiebot"}
+					async={true}
+					src={"https://consent.cookiebot.com/uc.js"}
+					data-cbid={import.meta.env.VITE_COOKIEBOT_ID}
+					data-blockingmode={"auto"}
+					type={"text/javascript"}
+				/>
 			</head>
 			<body>
 				{children}
