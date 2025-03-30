@@ -11,9 +11,24 @@ import {
 	Hr,
 	Link,
 	Section,
-	Img,
+	Column,
+	Row,
 } from "@react-email/components";
-import { HandMetal } from "lucide-react";
+import {
+	CheckIcon,
+	Hammer,
+	HandMetal,
+	PanelsTopLeft,
+	Sparkles,
+	TabletSmartphone,
+} from "lucide-react";
+
+const background = "oklch(0.98 0.02 240)";
+const headingColor = "oklch(0.15 0.02 240)";
+const textColor = "oklch(.45 .1 240)";
+const linkColor = "oklch(0.15 0.02 240)";
+const borderColor = "oklch(0.15 0.02 240)";
+const iconColor = "#FFF";
 
 export const SubscribedToWaitingListEmail = ({
 	name,
@@ -42,66 +57,141 @@ export const SubscribedToWaitingListEmail = ({
 			// }}
 			>
 				<Preview>Welcome to Buildr 🎉</Preview>
-				<Body className="bg-[hsl(215,32%,13%)] font-sans text-[hsl(210,40%,98%)]">
-					<Container className="mx-auto my-[40px] max-w-[465px] rounded-md border border-[hsl(217,15%,65%)] border-solid p-[20px]">
+				<Body className={`bg-[${background}] font-sans text-[${textColor}]`}>
+					<Container
+						className={`mx-auto my-[40px] max-w-[465px] rounded-md border border-[${borderColor}] border-solid p-[20px]`}
+					>
 						<Section className="my-[32px]">
 							<HandMetal className="mx-auto" />
 						</Section>
 						<Heading
 							as="h1"
-							className="font-medium text-xl leading-[1.1] tracking-tighter"
+							className={`font-medium text-xl leading-[1.1] tracking-tighter text-[${headingColor}]`}
 						>
 							Welcome to Buildr 🎉
 						</Heading>
-						<Text className="font-light text-[hsl(217,15%,65%)]">
-							Dear {name},
+						<Text className={`font-light text-[${textColor}]`}>Hi {name},</Text>
+						<Text className={`font-light text-[${textColor}]`}>
+							We’re excited to have you on the waiting list for Builder! You’ll
+							be among the first to experience a simple, fast, and effective way
+							to create beautiful landing pages—no coding required.
 						</Text>
-						<Text className="font-light text-[hsl(217,15%,65%)]">
-							Thank you for signing up for our waiting list! We’re thrilled to
-							have you join us on this exciting journey as we build our
-							platform.
+						<Text
+							className={`leading-relaxed tracking-tight text-[${textColor}]`}
+						>
+							We’re working hard to get everything ready, and we’ll let you know
+							as soon as you can access Builder. In the meantime, here’s what
+							you can expect:
 						</Text>
-						<Text className="text-[hsl(217,15%,65%)] leading-relaxed tracking-tight">
-							While we’re hard at work creating an exceptional experience for
-							you, we’d love for you to be part of our growing community. Join
-							our{" "}
-							<Link
-								href="https://discord.gg/etjCdzpVrS"
-								className="text-[hsl(24,95%,53%)]"
-							>
-								Discord community
-							</Link>{" "}
-							to connect with like-minded people, find roleplay partners, and
-							discuss all things related to improving your Medical English
-							skills.
+						<Row className="mt-[16px]">
+							<Column className="w-1/2 pr-[12px] align-baseline" colSpan={1}>
+								<div
+									className={`flex items-center justify-center rounded-full bg-[${headingColor}] p-[12px]`}
+								>
+									<Hammer className={`mx-auto text-[${iconColor}]`} size={24} />
+								</div>
+								<Text
+									className={`m-0 mt-[16px] font-semibold text-[20px] leading-[28px] text-[${headingColor}]`}
+								>
+									Drag-and-Drop Simplicity
+								</Text>
+								<Text
+									className={`mt-[8px] mb-0 text-[16px] leading-[24px] text-[${textColor}]`}
+								>
+									Easily build your landing page with an intuitive, no-code
+									editor.
+								</Text>
+							</Column>
+							<Column className="w-1/2 pr-[12px] align-baseline" colSpan={1}>
+								<div
+									className={`flex items-center justify-center rounded-full bg-[${headingColor}] p-[12px]`}
+								>
+									<PanelsTopLeft
+										className={`mx-auto text-[${iconColor}]`}
+										size={24}
+									/>
+								</div>
+								<Text
+									className={`m-0 mt-[16px] font-semibold text-[20px] leading-[28px] text-[${headingColor}]`}
+								>
+									Professionally Designed Templates
+								</Text>
+								<Text
+									className={`mt-[8px] mb-0 text-[16px] leading-[24px] text-[${textColor}]`}
+								>
+									Choose from stunning, high-converting templates to get started
+									quickly.
+								</Text>
+							</Column>
+							<Column className="w-1/2 pr-[12px] align-baseline" colSpan={1}>
+								<div
+									className={`flex items-center justify-center rounded-full bg-[${headingColor}] p-[12px]`}
+								>
+									<Sparkles
+										className={`mx-auto text-[${iconColor}]`}
+										size={24}
+									/>
+								</div>
+								<Text
+									className={`m-0 mt-[16px] font-semibold text-[20px] leading-[28px] text-[${headingColor}]`}
+								>
+									AI Content Helper
+								</Text>
+								<Text
+									className={`mt-[8px] mb-0 text-[16px] leading-[24px] text-[${textColor}]`}
+								>
+									Struggling with copy? Our AI assistant will generate engaging
+									text for your landing page.
+								</Text>
+							</Column>
+							<Column className="w-1/2 pr-[12px] align-baseline" colSpan={1}>
+								<div
+									className={`flex items-center justify-center rounded-full bg-[${headingColor}] p-[12px]`}
+								>
+									<TabletSmartphone
+										className={`mx-auto text-[${iconColor}]`}
+										size={24}
+									/>
+								</div>
+								<Text
+									className={`m-0 mt-[16px] font-semibold text-[20px] leading-[28px] text-[${headingColor}]`}
+								>
+									Mobile-Optimized Pages
+								</Text>
+								<Text
+									className={`mt-[8px] mb-0 text-[16px] leading-[24px] text-[${textColor}]`}
+								>
+									Your landing page will look great on any device—automatically.
+								</Text>
+							</Column>
+						</Row>
+						<Text
+							className={`leading-relaxed tracking-tight text-[${textColor}]`}
+						>
+							Stay tuned for updates! We’ll keep you posted on our progress and
+							let you know the moment Buildr is live.
 						</Text>
-						<Text className="text-[hsl(217,15%,65%)] leading-relaxed tracking-tight">
-							For real-time updates and behind-the-scenes looks at our progress,
-							don’t forget to follow us on{" "}
-							<Link
-								href="https://www.instagram.com/medixchat/"
-								className="text-[hsl(24,95%,53%)]"
-							>
-								Instagram
-							</Link>
-							. We share our milestones, features in the making, and everything
-							leading up to the big launch.
-						</Text>
-						<Text className="text-[hsl(217,15%,65%)] leading-relaxed tracking-tight">
+						<Text
+							className={`leading-relaxed tracking-tight text-[${textColor}]`}
+						>
 							Thank you again for your support and enthusiasm. We can’t wait to
 							share what we’ve been working on with you!
 						</Text>
-						<Text className="text-[hsl(217,15%,65%)] leading-relaxed tracking-tight">
-							Best regards,
+						<Text
+							className={`leading-relaxed tracking-tight text-[${textColor}]`}
+						>
+							Talk soon,
 							<br />
 							The Buildr team
 						</Text>
-						<Hr className="my-[20px] rounded-md bg-[hsl(217,15%,65%)] text-[hsl(217,15%,65%)]" />
-						<Text className="text-[hsl(217,15%,65%)] text-sm leading-relaxed tracking-tight">
-							If you have any questions, please don't hesitate{" "}
+						<Hr className={`my-[20px] rounded-md bg-[${borderColor}]`} />
+						<Text
+							className={`text-[${textColor}] text-sm leading-relaxed tracking-tight`}
+						>
+							If you have any questions or suggestions, please don't hesitate{" "}
 							<Link
 								href="mailto:info@stvnx.nl"
-								className="text-[hsl(24,95%,53%)]"
+								className={`text-[${linkColor}]`}
 							>
 								to reach out to us
 							</Link>

@@ -14,6 +14,11 @@ import {
 } from "@react-email/components";
 import { HandMetal } from "lucide-react";
 
+const background = "oklch(0.98 0.02 240)";
+const headingColor = "oklch(0.15 0.02 240)";
+const textColor = "oklch(.45 .1 240)";
+const borderColor = "oklch(0.15 0.02 240)";
+
 export const NewSubscriberEmail = ({
 	email,
 	name,
@@ -43,40 +48,42 @@ export const NewSubscriberEmail = ({
 			// }}
 			>
 				<Preview>New waiting list sign-up 🎉</Preview>
-				<Body className="bg-[hsl(215,32%,13%)] font-sans text-[hsl(210,40%,98%)]">
-					<Container className="mx-auto my-[40px] max-w-[465px] rounded-md border border-[hsl(217,15%,65%)] border-solid p-[20px]">
+				<Body className={`bg-[${background}] font-sans text-[${textColor}]`}>
+					<Container
+						className={`mx-auto my-[40px] max-w-[465px] rounded-md border border-[${borderColor}] border-solid p-[20px]`}
+					>
 						<Section className="my-[32px]">
 							<HandMetal className="mx-auto" />
 						</Section>
 						<Heading
 							as="h1"
-							className="font-medium text-xl leading-[1.1] tracking-tighter"
+							className={`font-medium text-xl leading-[1.1] tracking-tighter text-[${headingColor}]`}
 						>
 							New waiting list sign-up 🎉
 						</Heading>
-						<Text className="font-light text-[hsl(217,15%,65%)]">
+						<Text className={`font-light text-[${textColor}]`}>
 							Hello team,
 						</Text>
-						<Text className="font-light text-[hsl(217,15%,65%)]">
+						<Text className={`font-light text-[${textColor}]`}>
 							We just received a new sign-up for our waiting list!
 						</Text>
-						<Text className="font-light text-[hsl(217,15%,65%)]">
+						<Text className={`font-light text-[${textColor}]`}>
 							Details of the sign-up:
 						</Text>
-						<Text className="font-semibold text-[hsl(217,15%,65%)]">
+						<Text className={`font-semibold text-[${textColor}]`}>
 							Name: <br />
 							{name},<br />
 							Email: <br />
 							{email}
 						</Text>
-						<Text className="font-light text-[hsl(217,15%,65%)]">
+						<Text className={`font-light text-[${textColor}]`}>
 							This is a great sign of growing interest in our platform. Let’s
 							continue building momentum as we work toward our launch!
 						</Text>
-						<Text className="font-light text-[hsl(217,15%,65%)]">
+						<Text className={`font-light text-[${textColor}]`}>
 							Thank you for all your hard work and dedication.
 						</Text>
-						<Text className="font-light text-[hsl(217,15%,65%)]">
+						<Text className={`font-light text-[${textColor}]`}>
 							Best,
 							<br />
 							The Buildr team
