@@ -10,7 +10,7 @@ function RouteComponent() {
 	return (
 		<section>
 			<h1 className="mb-4 font-regular text-4xl tracking-tighter md:text-6xl">
-				Cookie Policy - Builder
+				Cookie Policy - Buildr
 			</h1>
 			<CookiePolicyContent />
 		</section>

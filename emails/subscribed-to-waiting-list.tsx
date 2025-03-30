@@ -23,7 +23,7 @@ export const SubscribedToWaitingListEmail = ({
 	return (
 		<Html lang="en">
 			<Head>
-				<title>Welcome to builder 🎉</title>
+				<title>Welcome to Buildr 🎉</title>
 				<link rel="preconnect" href="https://fonts.googleapis.com" />
 				<link
 					rel="preconnect"
@@ -41,7 +41,7 @@ export const SubscribedToWaitingListEmail = ({
 			//   theme: { extend: { fontFamily: { sans: ["Geist", "sans-serif"] } } },
 			// }}
 			>
-				<Preview>Welcome to builder 🎉</Preview>
+				<Preview>Welcome to Buildr 🎉</Preview>
 				<Body className="bg-[hsl(215,32%,13%)] font-sans text-[hsl(210,40%,98%)]">
 					<Container className="mx-auto my-[40px] max-w-[465px] rounded-md border border-[hsl(217,15%,65%)] border-solid p-[20px]">
 						<Section className="my-[32px]">
@@ -51,7 +51,7 @@ export const SubscribedToWaitingListEmail = ({
 							as="h1"
 							className="font-medium text-xl leading-[1.1] tracking-tighter"
 						>
-							Welcome to builder 🎉
+							Welcome to Buildr 🎉
 						</Heading>
 						<Text className="font-light text-[hsl(217,15%,65%)]">
 							Dear {name},
@@ -94,7 +94,7 @@ export const SubscribedToWaitingListEmail = ({
 						<Text className="text-[hsl(217,15%,65%)] leading-relaxed tracking-tight">
 							Best regards,
 							<br />
-							The builder team
+							The Buildr team
 						</Text>
 						<Hr className="my-[20px] rounded-md bg-[hsl(217,15%,65%)] text-[hsl(217,15%,65%)]" />
 						<Text className="text-[hsl(217,15%,65%)] text-sm leading-relaxed tracking-tight">

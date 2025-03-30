@@ -59,11 +59,11 @@ export const Route = createRootRouteWithContext<{
 				content: "width=device-width, initial-scale=1",
 			},
 			{
-				title: "Builder - the easiest way to build your landing page",
+				title: "Buildr - the easiest way to build your landing page",
 			},
 			{
 				name: "og:title",
-				content: "Builder - the easiest way to build your landing page",
+				content: "Buildr - the easiest way to build your landing page",
 			},
 			{
 				name: "og:description",

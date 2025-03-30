@@ -8,13 +8,13 @@ function RouteComponent() {
 	return (
 		<section>
 			<h1 className="mb-4 font-regular text-4xl tracking-tighter md:text-6xl">
-				Privacy Policy - Builder
+				Privacy Policy - Buildr
 			</h1>
 			<h2 className="mb-2 font-medium text-xl tracking-tighter md:text-2xl">
 				Effective Date: 30th March 2025
 			</h2>
 			<p className="mb-4 text-muted-foreground tracking-tighter">
-				Welcome to Builder ("we," "our," or "us"). We value your privacy and are
+				Welcome to Buildr ("we," "our," or "us"). We value your privacy and are
 				committed to protecting your personal data. This Privacy Policy explains
 				how we collect, use, and protect your information when you use our
 				website (www.build-r.dev) and related services. It also outlines your
@@ -208,7 +208,7 @@ function RouteComponent() {
 				</a>
 			</p>
 			<p className="mb-6 text-muted-foreground tracking-tighter">
-				Thank you for trusting Builder with your data.
+				Thank you for trusting Buildr with your data.
 			</p>
 		</section>
 	);

@@ -8,10 +8,10 @@ function RouteComponent() {
 	return (
 		<section>
 			<h1 className="mb-4 font-regular text-4xl tracking-tighter md:text-6xl">
-				Terms of Service - Builder
+				Terms of Service - Buildr
 			</h1>
 			<p className="mb-4 text-muted-foreground tracking-tighter">
-				Welcome to Builder ("we," "our," or "us"). By accessing or using our
+				Welcome to Buildr ("we," "our," or "us"). By accessing or using our
 				website (www.build-r.dev) and related services, you agree to be bound by
 				these Terms of Service ("Terms"). If you do not agree to these Terms,
 				you must not use our services.
@@ -20,7 +20,7 @@ function RouteComponent() {
 				1. Overview
 			</h3>
 			<p className="mb-6 text-muted-foreground tracking-tighter">
-				Builder provides a platform for easy and fast landing page creation.
+				Buildr provides a platform for easy and fast landing page creation.
 				These Terms govern your use of our platform, including any updates or
 				changes made over time.
 			</p>
@@ -60,7 +60,7 @@ function RouteComponent() {
 				4. Acceptable Use
 			</h3>
 			<p className="mb-1 text-muted-foreground tracking-tighter">
-				You agree to use Builder responsibly and refrain from:
+				You agree to use Buildr responsibly and refrain from:
 			</p>
 			<ul className="mt-1 mb-6 flex list-inside list-disc flex-col gap-1 font-regular text-muted-foreground tracking-tighter">
 				<li>Using the platform for illegal or harmful activities.</li>
@@ -76,7 +76,7 @@ function RouteComponent() {
 				5. Intellectual Property
 			</h3>
 			<p className="mb-1 text-muted-foreground tracking-tighter">
-				All content, trademarks, and intellectual property on Builder are owned
+				All content, trademarks, and intellectual property on Buildr are owned
 				by us or our licensors. You are granted a limited, non-exclusive license
 				to use our services for personal or business purposes. Unauthorized use,
 				copying, or distribution of our intellectual property is prohibited.
@@ -98,7 +98,7 @@ function RouteComponent() {
 				7. Third-Party Services
 			</h3>
 			<p className="mb-6 text-muted-foreground tracking-tighter">
-				Builder may include links or integrations with third-party services. We
+				Buildr may include links or integrations with third-party services. We
 				are not responsible for their content, terms, or privacy practices. You
 				use third-party services at your own risk.
 			</p>
@@ -114,7 +114,7 @@ function RouteComponent() {
 				9. Limitation of Liability
 			</h3>
 			<p className="mb-6 text-muted-foreground tracking-tighter">
-				To the fullest extent permitted by law, Builder and its affiliates are
+				To the fullest extent permitted by law, Buildr and its affiliates are
 				not liable for:
 			</p>
 			<ul className="mt-1 mb-6 flex list-inside list-disc flex-col gap-1 font-regular text-muted-foreground tracking-tighter">
@@ -128,7 +128,7 @@ function RouteComponent() {
 				10. Indemnification
 			</h3>
 			<p className="mb-6 text-muted-foreground tracking-tighter">
-				You agree to indemnify and hold harmless Builder from any claims,
+				You agree to indemnify and hold harmless Buildr from any claims,
 				damages, or liabilities arising from:
 			</p>
 			<ul className="mt-1 mb-6 flex list-inside list-disc flex-col gap-1 font-regular text-muted-foreground tracking-tighter">
@@ -154,7 +154,7 @@ function RouteComponent() {
 				13. Termination
 			</h3>
 			<p className="mb-6 text-muted-foreground tracking-tighter">
-				We reserve the right to suspend or terminate your access to Builder for
+				We reserve the right to suspend or terminate your access to Buildr for
 				violations of these Terms or other reasons at our discretion.
 				Termination does not waive any of our rights under these Terms.
 			</p>
@@ -171,7 +171,7 @@ function RouteComponent() {
 				</a>
 			</p>
 			<p className="mb-6 text-muted-foreground tracking-tighter">
-				Thank you for choosing Builder.
+				Thank you for choosing Buildr.
 			</p>
 		</section>
 	);

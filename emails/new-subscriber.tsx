@@ -79,7 +79,7 @@ export const NewSubscriberEmail = ({
 						<Text className="font-light text-[hsl(217,15%,65%)]">
 							Best,
 							<br />
-							The builder team
+							The Buildr team
 						</Text>
 					</Container>
 				</Body>
