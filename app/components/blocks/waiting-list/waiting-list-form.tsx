@@ -56,7 +56,11 @@ export const WaitingListForm: FunctionComponent<WaitingListFormProps> = ({
 
 	const handleSuccess = ({ name }: { name: string }) => {
 		toast.success(`Yeah, you're on the list ${name}! 🚀`, {
-			description: `Thanks for signing up! We'll be in touch soon.`,
+			description: (
+				<span className="bg-background text-foreground">
+					Thanks for signing up! We'll be in touch soon.
+				</span>
+			),
 		});
 
 		// ph.capture("submitted the waiting list form");
@@ -83,14 +87,22 @@ export const WaitingListForm: FunctionComponent<WaitingListFormProps> = ({
 			if (response.status === 409) {
 				// ph.capture("submitted the waiting list form with an existing email");
 				toast.error(`Thanks for your enthousiasm, ${values.name}!`, {
-					description:
-						"But your email already exists on the waiting list so we didn't add you again. We'll be in touch soon.",
+					description: (
+						<span className="bg-background text-foreground">
+							But your email already exists on the waiting list so we didn't add
+							you again. We'll be in touch soon.
+						</span>
+					),
 				});
 			} else {
 				// ph.capture("failed to submit the waiting list form");
 
 				toast.error(`Something went wrong, ${values.name}!`, {
-					description: "Failed to add email to waiting list. Please try again.",
+					description: (
+						<span className="bg-background text-foreground">
+							Failed to add email to waiting list. Please try again.
+						</span>
+					),
 				});
 			}
 		}
