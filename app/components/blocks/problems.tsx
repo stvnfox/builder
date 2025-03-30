@@ -19,11 +19,11 @@ export const ProblemsComponent: FunctionComponent<ProblemsComponentProps> = ({
 }) => {
 	return (
 		<div className="my-20 lg:my-32">
-			<div className="flex flex-col items-center gap-4">
-				<h2 className="text-balance text-center font-regular text-4xl leading-[1.1]! tracking-tighter md:text-6xl lg:max-w-xl">
+			<div className="flex flex-col gap-4 lg:items-center">
+				<h2 className="text-balance font-regular text-4xl leading-[1.1]! tracking-tighter md:text-6xl lg:max-w-xl lg:text-center">
 					{title}
 				</h2>
-				<p className="mb-4 max-w-xl text-center text-muted-foreground text-xl leading-relaxed tracking-tight lg:max-w-2xl">
+				<p className="mb-4 max-w-xl text-muted-foreground text-xl leading-relaxed tracking-tight lg:max-w-2xl lg:text-center">
 					{description}
 				</p>
 				<ul className="flex flex-col gap-8 lg:items-center">
@@ -58,7 +58,7 @@ const ProblemItem: FunctionComponent<{ problem: string; index: number }> = ({
 				opacity: isInView ? 1 : 0,
 				transition: `all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) ${index * 0.25}s`,
 			}}
-			className="flex gap-4 text-balance text-lg text-muted-foreground lg:max-w-2xl lg:items-center lg:justify-center lg:gap-4 lg:text-pretty lg:text-xl"
+			className="flex gap-4 text-pretty text-lg text-muted-foreground lg:max-w-2xl lg:items-center lg:justify-center lg:gap-4 lg:text-balance lg:text-pretty lg:text-xl"
 		>
 			<XIcon className="min-h-8 min-w-8 stroke-primary lg:min-h-10 lg:min-w-10 dark:stroke-foreground" />
 			{problem}
