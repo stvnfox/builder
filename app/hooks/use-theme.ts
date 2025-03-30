@@ -1,8 +1,14 @@
 import { useState, useCallback } from "react";
-
+import { useLocation } from "@tanstack/react-router";
 type Theme = "dark" | "light";
 
-const DEFAULT_THEME: Theme = "dark";
+const DEFAULT_THEME: Theme = "light";
+const LANDING_PAGE_ROUTES = [
+	"/",
+	"/privacy-policy",
+	"/cookie-policy",
+	"/terms-of-service",
+];
 
 const getThemeFromDOM = (): Theme => {
 	if (typeof document === "undefined") return DEFAULT_THEME;
@@ -12,6 +18,9 @@ const getThemeFromDOM = (): Theme => {
 
 export const useTheme = () => {
 	const [theme, setThemeState] = useState<Theme>(getThemeFromDOM());
+
+	const location = useLocation();
+	const isLandingPage = LANDING_PAGE_ROUTES.includes(location.pathname);
 
 	const setTheme = useCallback(
 		(newTheme: Theme) => {
@@ -53,6 +62,10 @@ export const useTheme = () => {
 			} else if (prefersDark && theme === "light") {
 				// Ensure DOM matches system preference if no saved preference
 				setTheme("dark");
+			}
+
+			if (isLandingPage) {
+				setTheme("light");
 			}
 		} catch (error) {
 			console.warn("Failed to initialize theme", error);
