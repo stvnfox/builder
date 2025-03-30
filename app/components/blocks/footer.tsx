@@ -52,14 +52,14 @@ export const FooterComponent: FunctionComponent<FooterComponentProps> = ({
 			<div className="mb-10 h-px w-full rounded-lg bg-foreground/20" />
 			<div className="flex flex-col items-center justify-between gap-4 text-sm md:gap-8 lg:flex-row">
 				<div className="order-3 flex flex-row gap-4 lg:order-1">
-					<div className="mr-4 hidden text-primary lg:block">
+					<div className="mr-4 hidden text-primary lg:block dark:text-foreground">
 						&copy; {new Date().getFullYear()} {name}. All rights reserved
 					</div>
 					{links.map((link) => (
 						<Link
 							key={link.label}
 							to={link.href}
-							className="underline-hover text-sm after:bg-primary"
+							className="underline-hover text-sm after:bg-primary dark:after:bg-foreground"
 						>
 							{link.label}
 						</Link>

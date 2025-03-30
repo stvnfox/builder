@@ -60,7 +60,7 @@ const ProblemItem: FunctionComponent<{ problem: string; index: number }> = ({
 			}}
 			className="flex gap-4 text-balance text-lg text-muted-foreground lg:max-w-2xl lg:items-center lg:justify-center lg:gap-4 lg:text-pretty lg:text-xl"
 		>
-			<XIcon className="min-h-8 min-w-8 stroke-primary lg:min-h-10 lg:min-w-10" />
+			<XIcon className="min-h-8 min-w-8 stroke-primary lg:min-h-10 lg:min-w-10 dark:stroke-foreground" />
 			{problem}
 		</li>
 	);
