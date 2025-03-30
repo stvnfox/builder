@@ -144,7 +144,7 @@ export const WaitingListForm: FunctionComponent<WaitingListFormProps> = ({
 							</FormControl>
 							<FormLabel className="inline font-normal leading-4">
 								I agree to receive emails from{" "}
-								<strong className="inline">builder</strong> about new features,
+								<strong className="inline">Buildr</strong> about new features,
 								updates, and other news. View our{" "}
 								<Link
 									to="/privacy-policy"
