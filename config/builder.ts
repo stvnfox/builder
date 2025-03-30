@@ -171,9 +171,9 @@ export const builderConfig = {
 			{ label: "Terms of Service", href: "/terms-of-service" },
 		],
 		socials: {
-			linkedin: "https://www.linkedin.com/company/builder",
+			linkedin: "https://www.linkedin.com/company/buildrdev/",
 			// instagram: "https://www.instagram.com/builder",
-			x: "https://www.x.com/builder",
+			x: "https://x.com/buildrdev",
 			// youtube: "https://www.youtube.com/channel/UC_9-kyTW8ZkZNDHQJ6FgpwQ",
 		},
 	},
