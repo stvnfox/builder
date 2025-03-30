@@ -39,7 +39,7 @@ export const NavigationComponent: FunctionComponent<
 	signUpRedirectUrl,
 }) => {
 	return (
-		<section className="sticky top-0 z-40 flex items-center justify-between bg-background py-8">
+		<section className="sticky top-0 z-40 flex items-center justify-between bg-background/90 py-8 backdrop-blur-sm">
 			<Link to="/" className="flex items-center gap-2 text-2xl">
 				{icon && createElement(icon, { className: "h-8 w-8" })}
 				<span className="hidden sm:block">{title}</span>
@@ -49,16 +49,16 @@ export const NavigationComponent: FunctionComponent<
 					<ul className="flex items-center gap-8">
 						{links.map((link) => (
 							<li key={link.label}>
-								<Link
-									to={link.href}
+								<a
+									href={link.href}
 									aria-label={link.ariaLabel}
 									className={cn(
-										"underline-hover text-sm after:bg-primary",
+										"underline-hover text-sm after:bg-primary dark:after:bg-foreground",
 										link.disabled && "pointer-events-none opacity-50",
 									)}
 								>
 									{link.label}
-								</Link>
+								</a>
 							</li>
 						))}
 					</ul>
