@@ -27,7 +27,7 @@ export const builderConfig = {
 			// },
 			{
 				label: "Roadmap (coming soon)",
-				ariaLabel: "Click here to read about MedixChat roadmap",
+				ariaLabel: "Click here to read about Builder's roadmap",
 				href: "/",
 				disabled: true,
 			},
