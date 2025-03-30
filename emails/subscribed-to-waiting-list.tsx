@@ -21,12 +21,11 @@ import {
 	TabletSmartphone,
 } from "lucide-react";
 
-const background = "oklch(0.98 0.02 240)";
-const headingColor = "oklch(0.15 0.02 240)";
-const textColor = "oklch(.45 .1 240)";
-const linkColor = "oklch(0.15 0.02 240)";
-const borderColor = "oklch(0.15 0.02 240)";
-const iconColor = "#FFF";
+const background = "#EDFBFF";
+const headingColor = "#040C13";
+const textColor = "#085B87";
+const linkColor = "#040C13";
+const borderColor = "#040C13";
 
 export const SubscribedToWaitingListEmail = ({
 	name,
@@ -68,8 +67,14 @@ export const SubscribedToWaitingListEmail = ({
 						>
 							Welcome to Buildr 🎉
 						</Heading>
-						<Text className={`font-light text-[${textColor}]`}>Hi {name},</Text>
-						<Text className={`font-light text-[${textColor}]`}>
+						<Text
+							className={`leading-relaxed tracking-tight text-[${textColor}]`}
+						>
+							Hi {name},
+						</Text>
+						<Text
+							className={`leading-relaxed tracking-tight text-[${textColor}]`}
+						>
 							We’re excited to have you on the waiting list for Builder! You’ll
 							be among the first to experience a simple, fast, and effective way
 							to create beautiful landing pages—no coding required.
@@ -83,82 +88,71 @@ export const SubscribedToWaitingListEmail = ({
 						</Text>
 						<Row className="mt-[16px]">
 							<Column className="w-1/2 pr-[12px] align-baseline" colSpan={1}>
-								<div
-									className={`flex items-center justify-center rounded-full bg-[${headingColor}] p-[12px]`}
-								>
-									<Hammer className={`mx-auto text-[${iconColor}]`} size={24} />
-								</div>
+								<Hammer
+									className={`mx-auto text-[${textColor}]`}
+									color={textColor}
+									size={24}
+								/>
 								<Text
-									className={`m-0 mt-[16px] font-semibold text-[20px] leading-[28px] text-[${headingColor}]`}
+									className={`m-0 mt-[4px] mb-[0px] font-semibold text-[18px] text-[${headingColor}]`}
 								>
 									Drag-and-Drop Simplicity
 								</Text>
-								<Text
-									className={`mt-[8px] mb-0 text-[16px] leading-[24px] text-[${textColor}]`}
-								>
+								<Text className={`mt-[2px] mb-[0px] text-[${textColor}]`}>
 									Easily build your landing page with an intuitive, no-code
 									editor.
 								</Text>
 							</Column>
+						</Row>
+						<Row className="mt-[16px]">
 							<Column className="w-1/2 pr-[12px] align-baseline" colSpan={1}>
-								<div
-									className={`flex items-center justify-center rounded-full bg-[${headingColor}] p-[12px]`}
-								>
-									<PanelsTopLeft
-										className={`mx-auto text-[${iconColor}]`}
-										size={24}
-									/>
-								</div>
+								<PanelsTopLeft
+									className={`mx-auto text-[${textColor}]`}
+									color={textColor}
+									size={24}
+								/>
 								<Text
-									className={`m-0 mt-[16px] font-semibold text-[20px] leading-[28px] text-[${headingColor}]`}
+									className={`m-0 mt-[4px] mb-[0px] font-semibold text-[18px] text-[${headingColor}]`}
 								>
 									Professionally Designed Templates
 								</Text>
-								<Text
-									className={`mt-[8px] mb-0 text-[16px] leading-[24px] text-[${textColor}]`}
-								>
+								<Text className={`mt-[2px] mb-[0px] text-[${textColor}]`}>
 									Choose from stunning, high-converting templates to get started
 									quickly.
 								</Text>
 							</Column>
+						</Row>
+						<Row className="mt-[16px]">
 							<Column className="w-1/2 pr-[12px] align-baseline" colSpan={1}>
-								<div
-									className={`flex items-center justify-center rounded-full bg-[${headingColor}] p-[12px]`}
-								>
-									<Sparkles
-										className={`mx-auto text-[${iconColor}]`}
-										size={24}
-									/>
-								</div>
+								<Sparkles
+									className={`mx-auto text-[${textColor}]`}
+									color={textColor}
+									size={24}
+								/>
 								<Text
-									className={`m-0 mt-[16px] font-semibold text-[20px] leading-[28px] text-[${headingColor}]`}
+									className={`m-0 mt-[4px] mb-[0px] font-semibold text-[18px] text-[${headingColor}]`}
 								>
 									AI Content Helper
 								</Text>
-								<Text
-									className={`mt-[8px] mb-0 text-[16px] leading-[24px] text-[${textColor}]`}
-								>
+								<Text className={`mt-[2px] mb-[0px] text-[${textColor}]`}>
 									Struggling with copy? Our AI assistant will generate engaging
 									text for your landing page.
 								</Text>
 							</Column>
+						</Row>
+						<Row className="mt-[16px]">
 							<Column className="w-1/2 pr-[12px] align-baseline" colSpan={1}>
-								<div
-									className={`flex items-center justify-center rounded-full bg-[${headingColor}] p-[12px]`}
-								>
-									<TabletSmartphone
-										className={`mx-auto text-[${iconColor}]`}
-										size={24}
-									/>
-								</div>
+								<TabletSmartphone
+									className={`mx-auto text-[${textColor}]`}
+									color={textColor}
+									size={24}
+								/>
 								<Text
-									className={`m-0 mt-[16px] font-semibold text-[20px] leading-[28px] text-[${headingColor}]`}
+									className={`m-0 mt-[4px] mb-[0px] font-semibold text-[18px] text-[${headingColor}]`}
 								>
 									Mobile-Optimized Pages
 								</Text>
-								<Text
-									className={`mt-[8px] mb-0 text-[16px] leading-[24px] text-[${textColor}]`}
-								>
+								<Text className={`mt-[2px] mb-[0px] text-[${textColor}]`}>
 									Your landing page will look great on any device—automatically.
 								</Text>
 							</Column>

@@ -11,10 +11,10 @@ import {
 } from "@react-email/components";
 import { HandMetal } from "lucide-react";
 
-const background = "oklch(0.98 0.02 240)";
-const headingColor = "oklch(0.15 0.02 240)";
-const textColor = "oklch(.45 .1 240)";
-const borderColor = "oklch(0.15 0.02 240)";
+const background = "#EDFBFF";
+const headingColor = "#040C13";
+const textColor = "#085B87";
+const borderColor = "#040C13";
 
 export const NewSubscriberEmail = ({
 	email,
@@ -69,7 +69,8 @@ export const NewSubscriberEmail = ({
 						</Text>
 						<Text className={`font-semibold text-[${textColor}]`}>
 							Name: <br />
-							{name},<br />
+							{name}
+							<br />
 							Email: <br />
 							{email}
 						</Text>
