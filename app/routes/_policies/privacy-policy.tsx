@@ -151,7 +151,7 @@ function RouteComponent() {
 				<p>
 					To exercise your rights,{" "}
 					<a
-						href="mailto:info@stvnx.nl"
+						href="mailto:hello@build-r.dev"
 						className="underline-hover text-primary after:bg-primary dark:text-foreground dark:after:bg-foreground"
 					>
 						please contact us.
@@ -201,7 +201,7 @@ function RouteComponent() {
 			<p className="mb-6 text-muted-foreground tracking-tighter">
 				If you have any questions or concerns about this Privacy Policy,{" "}
 				<a
-					href="mailto:info@stvnx.nl"
+					href="mailto:hello@build-r.dev"
 					className="underline-hover text-primary after:bg-primary dark:text-foreground dark:after:bg-foreground"
 				>
 					please contact us.

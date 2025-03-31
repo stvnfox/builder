@@ -182,7 +182,7 @@ export const SubscribedToWaitingListEmail = ({
 						>
 							If you have any questions or suggestions, please don't hesitate{" "}
 							<Link
-								href="mailto:info@stvnx.nl"
+								href="mailto:hello@build-r.dev"
 								className={`text-[${linkColor}]`}
 							>
 								to reach out to us

@@ -25,7 +25,7 @@ export const APIRoute = createAPIFileRoute("/api/emails/waiting-list")({
 			// TODO: Send email to us to inform about new subscriber
 			const { error: notificationError } = await resend.emails.send({
 				from: "Buildr <hello@build-r.dev>",
-				to: ["steven@stvnx.nl"],
+				to: ["hello@build-r.dev"],
 				subject: "New waiting list subscriber 🎉",
 				react: NewSubscriberEmail({ email, name }),
 			});
