@@ -49,10 +49,11 @@ export const FAQComponent: FunctionComponent<FAQComponentProps> = ({
 									key={`index-${index}`}
 									value={`index-${index}`}
 									ref={ref}
+									className="will-change-transform"
 									style={{
 										transform: isInView ? "none" : "translateY(20px)",
 										opacity: isInView ? 1 : 0,
-										transition: `all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) ${index * 0.5}s`,
+										transition: `all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) ${index * 0.25}s`,
 									}}
 								>
 									<AccordionTrigger className="items-center text-base hover:underline-offset-4 lg:text-lg">

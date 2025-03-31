@@ -11,8 +11,8 @@ import {
 import { PageSwitcher } from "./page-switcher";
 import { AccountNav } from "./sidebar/account-nav";
 import { BuilderNav } from "./sidebar/builder-nav";
-import { SettingsNav } from "./sidebar/settings-nav";
 import { PageNav } from "./sidebar/page-nav";
+import { SettingsNav } from "./sidebar/settings-nav";
 
 export const AppSidebar: FunctionComponent = () => {
 	const { view } = useViewContext();

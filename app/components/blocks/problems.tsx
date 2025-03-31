@@ -58,7 +58,7 @@ const ProblemItem: FunctionComponent<{ problem: string; index: number }> = ({
 				opacity: isInView ? 1 : 0,
 				transition: `all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) ${index * 0.25}s`,
 			}}
-			className="flex gap-4 text-pretty text-lg text-muted-foreground lg:max-w-2xl lg:items-center lg:justify-center lg:gap-4 lg:text-balance lg:text-pretty lg:text-xl"
+			className="flex gap-4 text-pretty text-lg text-muted-foreground will-change-transform lg:max-w-2xl lg:items-center lg:justify-center lg:gap-4 lg:text-pretty lg:text-xl"
 		>
 			<XIcon className="min-h-8 min-w-8 stroke-primary lg:min-h-10 lg:min-w-10 dark:stroke-foreground" />
 			{problem}
