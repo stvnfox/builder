@@ -13,9 +13,11 @@ import { ClerkProvider, useAuth } from "@clerk/tanstack-start";
 import { getAuth } from "@clerk/tanstack-start/server";
 import { getWebRequest } from "@tanstack/react-start/server";
 import { ConvexProviderWithClerk } from "convex/react-clerk";
-import { Toaster } from "@/components/ui/sonner";
 
+import { PostHogProvider } from "@/providers/posthog-provider";
 import { useTheme } from "@/hooks/use-theme";
+
+import { Toaster } from "@/components/ui/sonner";
 
 import appCss from "@/main.css?url";
 
@@ -70,11 +72,11 @@ export const Route = createRootRouteWithContext<{
 				content:
 					"Transform your ideas into high-converting landing pages. Save time and money with our professional builder - no design or coding skills needed.",
 			},
-			// TODO: Add og:image
-			// {
-			// 	name: "og:image",
-			// 	content: "https://www.build-r.dev/og-image.png",
-			// },
+			{
+				name: "og:image",
+				content:
+					"https://basic-rhinoceros-525.convex.cloud/api/storage/e70b7c60-b9e3-41da-a6aa-3c3b505db4fb",
+			},
 			{
 				name: "og:url",
 				content: "https://www.build-r.dev",
@@ -135,13 +137,18 @@ function RootComponent() {
 	const context = useRouteContext({ from: Route.id });
 
 	return (
-		<ClerkProvider publishableKey={CLERK_PUBLISHABLE_KEY}>
-			<ConvexProviderWithClerk client={context.convexClient} useAuth={useAuth}>
-				<RootDocument>
-					<Outlet />
-				</RootDocument>
-			</ConvexProviderWithClerk>
-		</ClerkProvider>
+		<PostHogProvider>
+			<ClerkProvider publishableKey={CLERK_PUBLISHABLE_KEY}>
+				<ConvexProviderWithClerk
+					client={context.convexClient}
+					useAuth={useAuth}
+				>
+					<RootDocument>
+						<Outlet />
+					</RootDocument>
+				</ConvexProviderWithClerk>
+			</ClerkProvider>
+		</PostHogProvider>
 	);
 }
 

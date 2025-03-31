@@ -1,5 +1,6 @@
 import { useState, useCallback } from "react";
 import { useLocation } from "@tanstack/react-router";
+
 type Theme = "dark" | "light";
 
 const DEFAULT_THEME: Theme = "light";
