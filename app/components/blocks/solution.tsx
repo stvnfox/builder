@@ -30,7 +30,7 @@ export const SolutionComponent: FunctionComponent<SolutionComponentProps> = ({
 			>
 				<img
 					src={image.url}
-					alt={image.alt}
+					alt={image.alt ?? ""}
 					loading="lazy"
 					className="order-2 lg:order-1"
 				/>
