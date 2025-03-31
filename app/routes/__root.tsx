@@ -5,6 +5,7 @@ import type { ConvexReactClient } from "convex/react";
 
 import {
 	createRootRouteWithContext,
+	useLocation,
 	useRouteContext,
 } from "@tanstack/react-router";
 import { Outlet, HeadContent, Scripts } from "@tanstack/react-router";
@@ -155,18 +156,23 @@ function RootComponent() {
 function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
 	const { theme } = useTheme();
 
+	const location = useLocation();
+	const isLandingPage = location.pathname === "/";
+
 	return (
 		<html lang="en" className={theme}>
 			<head>
 				<HeadContent />
-				<script
-					id={"Cookiebot"}
-					async={true}
-					src={"https://consent.cookiebot.com/uc.js"}
-					data-cbid={import.meta.env.VITE_COOKIEBOT_ID}
-					data-blockingmode={"auto"}
-					type={"text/javascript"}
-				/>
+				{isLandingPage && (
+					<script
+						id={"Cookiebot"}
+						async={true}
+						src={"https://consent.cookiebot.com/uc.js"}
+						data-cbid={import.meta.env.VITE_COOKIEBOT_ID}
+						data-blockingmode={"auto"}
+						type={"text/javascript"}
+					/>
+				)}
 			</head>
 			<body>
 				{children}
