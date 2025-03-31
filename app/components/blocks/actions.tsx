@@ -72,7 +72,7 @@ const ActionItem: FunctionComponent<{
 			style={{
 				transform: isInView ? "none" : "translateY(20px)",
 				opacity: isInView ? 1 : 0,
-				transition: `all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) ${index * 0.25}s`,
+				transition: `all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) ${index * 0.35}s`,
 			}}
 		>
 			<span className="-mt-1 min-w-8 font-bold text-5xl text-muted-foreground leading-none">

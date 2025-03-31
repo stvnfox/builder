@@ -60,11 +60,11 @@ const BenefitItem: FunctionComponent<{
 	return (
 		<div
 			ref={ref}
-			className="flex w-full flex-row items-start gap-6"
+			className="flex w-full flex-row items-start gap-6 will-change-transform"
 			style={{
 				transform: isInView ? "none" : "translateY(20px)",
 				opacity: isInView ? 1 : 0,
-				transition: `all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) ${index * 0.5}s`,
+				transition: `all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) ${index * 0.35}s`,
 			}}
 		>
 			<Check className="min-h-6 min-w-6 text-primary dark:text-foreground" />

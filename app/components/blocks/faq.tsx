@@ -53,7 +53,7 @@ export const FAQComponent: FunctionComponent<FAQComponentProps> = ({
 									style={{
 										transform: isInView ? "none" : "translateY(20px)",
 										opacity: isInView ? 1 : 0,
-										transition: `all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) ${index * 0.25}s`,
+										transition: `all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) ${index * 0.35}s`,
 									}}
 								>
 									<AccordionTrigger className="items-center text-base hover:underline-offset-4 lg:text-lg">
