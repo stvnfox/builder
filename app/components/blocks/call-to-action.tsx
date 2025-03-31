@@ -64,7 +64,7 @@ export const CallToActionComponent: FunctionComponent<
 				<img
 					loading="lazy"
 					src={image.url}
-					alt={image.alt}
+					alt={image.alt ?? ""}
 					className="h-full w-full object-contain"
 				/>
 			</div>

@@ -60,6 +60,7 @@ export const FooterComponent: FunctionComponent<FooterComponentProps> = ({
 							key={link.label}
 							to={link.href}
 							className="underline-hover text-sm after:bg-primary dark:after:bg-foreground"
+							aria-label={`Click here to go to the ${link.label} page`}
 						>
 							{link.label}
 						</Link>
@@ -76,6 +77,7 @@ export const FooterComponent: FunctionComponent<FooterComponentProps> = ({
 							target="_blank"
 							rel="noopener noreferrer"
 							className="transition-colors duration-300 hover:text-muted-foreground"
+							aria-label={`Click here to go to our ${social.key} page`}
 						>
 							{getLinkIcon(social.key)}
 						</Link>
