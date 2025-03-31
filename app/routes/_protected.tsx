@@ -1,12 +1,14 @@
-import { createFileRoute, redirect, Outlet } from "@tanstack/react-router";
+import { Outlet, createFileRoute, redirect } from "@tanstack/react-router";
+
+import { ViewProvider } from "@/providers/view-provider";
 
 import { AppSidebar } from "@/components/layout/app-sidebar";
+import { ThemeSwitcher } from "@/components/layout/theme-switcher";
 import {
 	SidebarInset,
 	SidebarProvider,
 	SidebarTrigger,
 } from "@/components/ui/sidebar";
-import { ViewProvider } from "@/providers/view-provider";
 
 export const Route = createFileRoute("/_protected")({
 	beforeLoad: ({ context }) => {
@@ -23,8 +25,13 @@ export const Route = createFileRoute("/_protected")({
 				<SidebarProvider>
 					<SidebarInset>
 						<main>
-							<SidebarTrigger className="lg:hidden" />
-							<Outlet />
+							<SidebarTrigger className="absolute top-2 right-12 border-sidebar-border! bg-transparent! shadow-sm lg:hidden" />
+							<div className="mt-16 lg:mt-0">
+								<Outlet />
+							</div>
+							<div className="absolute top-2 right-2 lg:right-0">
+								<ThemeSwitcher />
+							</div>
 						</main>
 					</SidebarInset>
 					<AppSidebar />
