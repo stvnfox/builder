@@ -66,7 +66,6 @@ export const HeroComponent: FunctionComponent<HeroComponentProps> = ({
 				<img
 					src={image.url}
 					alt={image.alt ?? ""}
-					loading="lazy"
 					className="rounded-lg object-contain"
 				/>
 			</div>
