@@ -20,6 +20,7 @@ import { useTheme } from "@/hooks/use-theme";
 
 import { Toaster } from "@/components/ui/sonner";
 
+import landingCss from "@/landing.css?url";
 import appCss from "@/main.css?url";
 
 const CLERK_PUBLISHABLE_KEY = (import.meta.env as Record<string, string>)
@@ -46,6 +47,13 @@ const fetchClerkAuth = createServerFn({ method: "GET" }).handler(async () => {
 		};
 	}
 });
+
+const DynamicStylesheet = () => {
+	const location = useLocation();
+	const href = location.pathname === "/" ? landingCss : appCss;
+
+	return <link rel="stylesheet" href={href} />;
+};
 
 export const Route = createRootRouteWithContext<{
 	queryClient: QueryClient;
@@ -95,12 +103,6 @@ export const Route = createRootRouteWithContext<{
 				name: "description",
 				content:
 					"Transform your ideas into high-converting landing pages. Save time and money with our professional builder - no design or coding skills needed.",
-			},
-		],
-		links: [
-			{
-				rel: "stylesheet",
-				href: appCss,
 			},
 		],
 	}),
@@ -155,7 +157,6 @@ function RootComponent() {
 
 function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
 	const { theme } = useTheme();
-
 	const location = useLocation();
 	const isLandingPage = location.pathname === "/";
 
@@ -163,6 +164,7 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
 		<html lang="en" className={theme}>
 			<head>
 				<HeadContent />
+				<DynamicStylesheet />
 				{isLandingPage && (
 					<script
 						id={"Cookiebot"}
