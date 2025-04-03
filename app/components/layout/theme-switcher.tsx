@@ -68,7 +68,7 @@ export const ThemeSwitcher: FunctionComponent = () => {
 
 	return (
 		<button
-			className="w-fit cursor-pointer rounded-md border border-sidebar-border p-1 shadow-sm"
+			className="ml-auto w-fit cursor-pointer rounded-md border border-sidebar-border p-1"
 			type="button"
 			aria-label="Click here to change the color theme"
 			onClick={changeColorTheme}

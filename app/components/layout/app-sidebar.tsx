@@ -13,6 +13,7 @@ import { AccountNav } from "./sidebar/account-nav";
 import { BuilderNav } from "./sidebar/builder-nav";
 import { PageNav } from "./sidebar/page-nav";
 import { SettingsNav } from "./sidebar/settings-nav";
+import { ThemeSwitcher } from "./theme-switcher";
 
 export const AppSidebar: FunctionComponent = () => {
 	const { view } = useViewContext();
@@ -27,6 +28,7 @@ export const AppSidebar: FunctionComponent = () => {
 				<SettingsNav />
 			</SidebarContent>
 			<SidebarFooter>
+				<ThemeSwitcher />
 				<AccountNav />
 			</SidebarFooter>
 		</Sidebar>

@@ -62,7 +62,7 @@ export const PageSwitcher = () => {
 							<DropdownMenuItem
 								key={page.name}
 								onClick={() => setSelectedPageId(page.id)}
-								className="gap-2 p-2"
+								className="cursor-pointer gap-2 p-2"
 							>
 								<div className="flex size-6 items-center justify-center rounded-sm border">
 									<page.logo className="size-4 shrink-0" />
@@ -71,7 +71,7 @@ export const PageSwitcher = () => {
 							</DropdownMenuItem>
 						))}
 						<DropdownMenuSeparator />
-						<DropdownMenuItem className="gap-2 p-2">
+						<DropdownMenuItem className="cursor-pointer gap-2 p-2">
 							<div className="flex size-6 items-center justify-center rounded-md border bg-background">
 								<Plus className="size-4" />
 							</div>
