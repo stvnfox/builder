@@ -25,7 +25,7 @@ export const Route = createFileRoute("/_protected")({
 				<SidebarProvider>
 					<SidebarInset>
 						<main>
-							<SidebarTrigger className="absolute top-2 right-12 border-sidebar-border! bg-transparent! shadow-sm lg:hidden" />
+							<SidebarTrigger className="absolute top-2 right-12 border-sidebar-border! bg-transparent! shadow-sm md:hidden" />
 							<div className="mt-16 lg:mt-0">
 								<Outlet />
 							</div>
