@@ -13,6 +13,7 @@ import type {
   FilterApi,
   FunctionReference,
 } from "convex/server";
+import type * as pages from "../pages.js";
 import type * as waiting_list from "../waiting_list.js";
 
 /**
@@ -24,6 +25,7 @@ import type * as waiting_list from "../waiting_list.js";
  * ```
  */
 declare const fullApi: ApiFromModules<{
+  pages: typeof pages;
   waiting_list: typeof waiting_list;
 }>;
 export declare const api: FilterApi<
