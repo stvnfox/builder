@@ -8,6 +8,7 @@ import {
 	DialogHeader,
 	DialogTitle,
 } from "@/components/ui/dialog";
+import { PageSwitcherForm } from "./page-switcher-form";
 
 export const PageSwitcherDialog: FunctionComponent = () => {
 	return (
@@ -20,9 +21,7 @@ export const PageSwitcherDialog: FunctionComponent = () => {
 					customize everything later.
 				</DialogDescription>
 			</DialogHeader>
-			<DialogFooter>
-				<Button type="submit">Confirm</Button>
-			</DialogFooter>
+			<PageSwitcherForm />
 		</DialogContent>
 	);
 };
