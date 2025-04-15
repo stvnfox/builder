@@ -86,7 +86,7 @@ export const PageSwitcher = () => {
 									key={page.name}
 									onClick={() => setSelectedPageId(page.id)}
 									className={cn(
-										"cursor-pointer gap-2 p-2",
+										"mb-1 cursor-pointer gap-2 p-2 last:mb-0",
 										page.id === selectedPageId && "cursor-default bg-accent",
 									)}
 								>
