@@ -34,10 +34,8 @@ export const PageSwitcher = () => {
 			<SidebarMenu>
 				<SidebarMenuItem>
 					<SidebarMenuButton size="lg">
-						{/* <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground"> */}
 						<Skeleton className="aspect-square size-8 rounded-lg" />
 						<Skeleton className="h-3 w-24" />
-						{/* </div> */}
 						<ChevronsUpDown className="ml-auto" />
 					</SidebarMenuButton>
 				</SidebarMenuItem>
