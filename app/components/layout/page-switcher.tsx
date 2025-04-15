@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { ChevronsUpDown, Plus } from "lucide-react";
 
 import { useViewState, useViewActions } from "@/providers/view-provider";
@@ -27,6 +28,7 @@ export const PageSwitcher = () => {
 	const { isMobile } = useSidebar();
 	const { selectedPageId } = useViewState();
 	const { pages, setSelectedPageId, isLoading } = useViewActions();
+	const [open, setOpen] = useState(false);
 
 	const activePage = pages.find((page) => page.id === selectedPageId);
 
@@ -51,7 +53,7 @@ export const PageSwitcher = () => {
 	return (
 		<SidebarMenu>
 			<SidebarMenuItem>
-				<Dialog>
+				<Dialog open={open} onOpenChange={setOpen}>
 					<DropdownMenu>
 						<DropdownMenuTrigger asChild>
 							<SidebarMenuButton
@@ -119,7 +121,7 @@ export const PageSwitcher = () => {
 							</DialogTrigger>
 						</DropdownMenuContent>
 					</DropdownMenu>
-					<PageSwitcherDialog />
+					<PageSwitcherDialog closeDialog={() => setOpen(false)} />
 				</Dialog>
 			</SidebarMenuItem>
 		</SidebarMenu>

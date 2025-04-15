@@ -15,7 +15,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { DialogFooter } from "@/components/ui/dialog";
 
-export const PageSwitcherForm: FunctionComponent = () => {
+type PageSwitcherFormProps = {
+	closeDialog: () => void;
+};
+
+export const PageSwitcherForm: FunctionComponent<PageSwitcherFormProps> = ({
+	closeDialog,
+}) => {
 	const userId = useUser().user?.id;
 	const { setSelectedPageId } = useViewActions();
 
@@ -46,6 +52,7 @@ export const PageSwitcherForm: FunctionComponent = () => {
 				toast.success(`Yeah, you're page is created! 🚀`);
 
 				setSelectedPageId(response.pageId);
+				closeDialog();
 			} else {
 				toast.error("Meh. Something went wrong.", {
 					description: (

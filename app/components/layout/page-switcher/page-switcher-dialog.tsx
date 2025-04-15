@@ -8,7 +8,13 @@ import {
 } from "@/components/ui/dialog";
 import { PageSwitcherForm } from "./page-switcher-form";
 
-export const PageSwitcherDialog: FunctionComponent = () => {
+type PageSwitcherDialogProps = {
+	closeDialog: () => void;
+};
+
+export const PageSwitcherDialog: FunctionComponent<PageSwitcherDialogProps> = ({
+	closeDialog,
+}) => {
 	return (
 		<DialogContent>
 			<DialogHeader>
@@ -19,7 +25,7 @@ export const PageSwitcherDialog: FunctionComponent = () => {
 					customize everything later.
 				</DialogDescription>
 			</DialogHeader>
-			<PageSwitcherForm />
+			<PageSwitcherForm closeDialog={closeDialog} />
 		</DialogContent>
 	);
 };
