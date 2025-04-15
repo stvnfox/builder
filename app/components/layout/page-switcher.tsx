@@ -21,6 +21,7 @@ import {
 	useSidebar,
 } from "@/components/ui/sidebar";
 import { Skeleton } from "@/components/ui/skeleton";
+import { cn } from "@/lib/utils";
 
 export const PageSwitcher = () => {
 	const { isMobile } = useSidebar();
@@ -82,10 +83,25 @@ export const PageSwitcher = () => {
 								<DropdownMenuItem
 									key={page.name}
 									onClick={() => setSelectedPageId(page.id)}
-									className="cursor-pointer gap-2 p-2"
+									className={cn(
+										"cursor-pointer gap-2 p-2",
+										page.id === selectedPageId && "cursor-default bg-accent",
+									)}
 								>
-									<div className="flex size-6 items-center justify-center rounded-sm border">
-										<page.logo className="size-4 shrink-0" />
+									<div
+										className={cn(
+											"flex size-6 items-center justify-center rounded-sm border",
+											page.id === selectedPageId &&
+												"border-primary bg-sidebar-primary text-sidebar-primary-foreground",
+										)}
+									>
+										<page.logo
+											className={cn(
+												"size-4 shrink-0",
+												page.id === selectedPageId &&
+													"text-sidebar-primary-foreground",
+											)}
+										/>
 									</div>
 									{page.name}
 								</DropdownMenuItem>
