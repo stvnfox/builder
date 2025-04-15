@@ -3,7 +3,7 @@ import { Brush, Search, Settings, TrendingUp } from "lucide-react";
 
 import type { View } from "@/types/views";
 
-import { useViewContext } from "@/providers/view-provider";
+import { useViewActions } from "@/providers/view-provider";
 
 import {
 	SidebarGroup,
@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/sidebar";
 
 export const SettingsNav: FunctionComponent = () => {
-	const { setView } = useViewContext();
+	const { setView } = useViewActions();
 
 	const items = [
 		{

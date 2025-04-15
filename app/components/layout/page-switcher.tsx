@@ -2,7 +2,7 @@
 
 import { ChevronsUpDown, Plus } from "lucide-react";
 
-import { useViewContext } from "@/providers/view-provider";
+import { useViewState, useViewActions } from "@/providers/view-provider";
 
 import {
 	DropdownMenu,
@@ -20,12 +20,30 @@ import {
 	SidebarMenuItem,
 	useSidebar,
 } from "@/components/ui/sidebar";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export const PageSwitcher = () => {
 	const { isMobile } = useSidebar();
-	const { selectedPageId, setSelectedPageId, pages } = useViewContext();
+	const { selectedPageId } = useViewState();
+	const { pages, setSelectedPageId, isLoading } = useViewActions();
 
 	const activePage = pages.find((page) => page.id === selectedPageId);
+
+	if (isLoading) {
+		return (
+			<SidebarMenu>
+				<SidebarMenuItem>
+					<SidebarMenuButton size="lg">
+						{/* <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground"> */}
+						<Skeleton className="aspect-square size-8 rounded-lg" />
+						<Skeleton className="h-3 w-24" />
+						{/* </div> */}
+						<ChevronsUpDown className="ml-auto" />
+					</SidebarMenuButton>
+				</SidebarMenuItem>
+			</SidebarMenu>
+		);
+	}
 
 	if (!activePage) {
 		return null;

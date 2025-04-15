@@ -1,52 +1,112 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect, useMemo } from "react";
 import { Home } from "lucide-react";
+
+import { useUser } from "@clerk/tanstack-start";
+import { useQuery } from "@tanstack/react-query";
+import { api } from "@convex/_generated/api";
+import { convexQuery } from "@convex-dev/react-query";
 
 import type { Page } from "@/types/pages";
 import type { View } from "@/types/views";
 
-type ViewContextType = {
-	view: View;
-	setView: (view: View) => void;
-	selectedPageId: string;
-	setSelectedPageId: (pageId: string) => void;
-	pages: Page[];
-};
+const ViewStateContext = createContext<
+	| {
+			view: View;
+			selectedPageId: string;
+	  }
+	| undefined
+>(undefined);
 
-const ViewContext = createContext<ViewContextType | undefined>(undefined);
+const ViewActionsContext = createContext<
+	| {
+			setView: (view: View) => void;
+			setSelectedPageId: (pageId: string) => void;
+			pages: Page[];
+			isLoading: boolean;
+	  }
+	| undefined
+>(undefined);
 
-export const ViewProvider = ({ children }: { children: React.ReactNode }) => {
+export const ViewProvider = ({
+	children,
+}: {
+	children: React.ReactNode;
+}) => {
 	const [view, setView] = useState<View>("builder");
-	const [selectedPageId, setSelectedPageId] = useState<string>("landing-page");
+	const [selectedPageId, setSelectedPageId] = useState<string>("");
 
-	// TODO: Get pages from database and set selectedPageId to first item here
-	const pages = [
-		{
-			name: "Landing page",
-			id: "landing-page",
+	const { user } = useUser();
+	const userId = user?.id;
+
+	const queryArgs = useMemo(
+		() => ({
+			...convexQuery(api.pages.getPagesByUserId, {
+				userId: userId as string,
+			}),
+			enabled: !!userId,
+		}),
+		[userId],
+	);
+
+	const { data, isPending } = useQuery(queryArgs);
+
+	const formattedPages = useMemo(() => {
+		if (!data || !data.pages) return [];
+
+		return data.pages.map((page: { name: string; id: string }) => ({
+			name: page.name,
+			id: page.id,
 			logo: Home,
-		},
-		{
-			name: "Landing page 2",
-			id: "landing-page-2",
-			logo: Home,
-		},
-	];
+		}));
+	}, [data]);
+
+	useEffect(() => {
+		if (formattedPages.length > 0 && !selectedPageId) {
+			setSelectedPageId(formattedPages[0].id);
+		}
+	}, [formattedPages, selectedPageId]);
+
+	const stateValue = useMemo(
+		() => ({
+			view,
+			selectedPageId,
+		}),
+		[view, selectedPageId],
+	);
+
+	const actionsValue = useMemo(
+		() => ({
+			setView,
+			setSelectedPageId,
+			pages: formattedPages,
+			isLoading: isPending,
+		}),
+		[formattedPages, isPending],
+	);
 
 	return (
-		<ViewContext.Provider
-			value={{ view, setView, selectedPageId, setSelectedPageId, pages }}
-		>
-			{children}
-		</ViewContext.Provider>
+		<ViewStateContext.Provider value={stateValue}>
+			<ViewActionsContext.Provider value={actionsValue}>
+				{children}
+			</ViewActionsContext.Provider>
+		</ViewStateContext.Provider>
 	);
 };
 
-export const useViewContext = () => {
-	const context = useContext(ViewContext);
+export const useViewState = () => {
+	const context = useContext(ViewStateContext);
 	if (context === undefined) {
-		throw new Error("useView must be used within a ViewProvider");
+		throw new Error("useViewState must be used within a ViewProvider");
+	}
+	return context;
+};
+
+export const useViewActions = () => {
+	const context = useContext(ViewActionsContext);
+	if (context === undefined) {
+		throw new Error("useViewActions must be used within a ViewProvider");
 	}
 	return context;
 };

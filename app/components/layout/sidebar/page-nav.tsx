@@ -4,19 +4,19 @@ import { Link } from "@tanstack/react-router";
 
 import type { View } from "@/types/views";
 
-import { useViewContext } from "@/providers/view-provider";
+import { useViewActions, useViewState } from "@/providers/view-provider";
 
 import {
 	SidebarGroup,
 	SidebarGroupContent,
-	SidebarGroupLabel,
 	SidebarMenu,
 	SidebarMenuButton,
 	SidebarMenuItem,
 } from "@/components/ui/sidebar";
 
 export const PageNav: FunctionComponent = () => {
-	const { setView, selectedPageId } = useViewContext();
+	const { selectedPageId } = useViewState();
+	const { setView } = useViewActions();
 
 	const items = [
 		{

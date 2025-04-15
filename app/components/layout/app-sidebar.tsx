@@ -1,6 +1,6 @@
 import type { FunctionComponent } from "react";
 
-import { useViewContext } from "@/providers/view-provider";
+import { useViewState } from "@/providers/view-provider";
 
 import {
 	Sidebar,
@@ -16,7 +16,7 @@ import { SettingsNav } from "./sidebar/settings-nav";
 import { ThemeSwitcher } from "./theme-switcher";
 
 export const AppSidebar: FunctionComponent = () => {
-	const { view } = useViewContext();
+	const { view } = useViewState();
 
 	return (
 		<Sidebar variant="floating" side="right">
